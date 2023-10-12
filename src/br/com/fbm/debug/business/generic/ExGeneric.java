@@ -7,9 +7,6 @@
  */
 package br.com.fbm.debug.business.generic;
 
-import java.util.Map;
-import java.util.HashMap;
-
 import br.com.fbm.debug.business.service.iface.ExService;
 
 /**
@@ -25,7 +22,8 @@ public abstract class ExGeneric
 	 * Tipo de retorno do exercício
 	 */
 	protected Class<?> tipoRetorno; 
-	private Map<String, Param<?>> mapParams;
+	protected Object valorRetorno;
+	protected StringBuilder saida;
 	
 	/**
 	 * Métodos comuns a todo exercício 
@@ -34,7 +32,7 @@ public abstract class ExGeneric
 	@Override
 	public void iniciarExercicio() {
 		
-		mapParams = new HashMap<>();
+		saida = new StringBuilder();
 		
 		tipoRetorno = definirTipoRetorno();
 		iniciarParametros();
@@ -48,44 +46,45 @@ public abstract class ExGeneric
 	
 	@Override
 	public void finalizarExercicio() {
-		prepararSaidas();
-		exibirSaidas();
+		prepararSaida();
+		exibirSaida();
 	}
 
-	/**
-	 * Retorna o map contendo os parâmetros definidos
-	 * pelo usuário.
-	 * 
-	 * @return
-	 */
-	public Map<String, Param<?>> getMapParams() {
-		return mapParams;
-	}
 	
-	/**
-	 * Adiciona parametros para processamento do exercício
-	 * 
-	 * @param pNomeParam
-	 * @param pParam
-	 */
-	public void addParam(final String pNomeParam, final Param<?> pParam) {
-		mapParams.put(pNomeParam, pParam);
-	}
+	
 	
 	/**
 	 * Comportamentos esperados durante a execução
 	 * dos métodos comuns de exercícios
 	 */
 	
-	abstract Class<?> definirTipoRetorno();
-	abstract void iniciarParametros();
-	abstract void processarParametros();
+	protected abstract Class<?> definirTipoRetorno();
+	protected abstract void iniciarParametros();
+	protected abstract void processarParametros();
 	
-	protected void prepararSaidas() {
+	protected void prepararSaida() {
 		//NA
 	}
 	
-	abstract void exibirSaidas();
+	protected void exibirSaida() {
+		
+		saida.insert(0, "\n");
+		saida.append("\n");
+		
+		System.out.println( saida.toString() );
+		
+	}
+	
+	
+	
+	/**
+	 * Retorna a saida resultando do processamento do exercício
+	 * @return
+	 */
+	public StringBuilder getSaida() {
+		return saida;
+	}
+	
 	
 	
 }

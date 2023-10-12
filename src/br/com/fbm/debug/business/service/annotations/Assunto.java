@@ -28,6 +28,6 @@ public @interface Assunto {
 	 * Define o assunto para implementações de {@code ExService}
 	 * @return
 	 */
-	String descricao() default "";
+	String value();
 	
 }
