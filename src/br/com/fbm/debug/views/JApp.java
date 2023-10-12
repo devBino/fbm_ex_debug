@@ -34,16 +34,17 @@ public class JApp extends JFrame {
 	private JPanel pnListExerciciosTop, pnListExerciciosLeft, pnListExerciciosRight, pnListExerciciosBottom;
 	private JPanel pnTituloListagemRight, pnHeaderRight, pnListExerciciosCenter;
 	private JPanel pnRelatorioRight, pnRelatorioBottom;
-	private JLabel lblAssunto, lblTipo, lbIntervaloInicial, lbIntervaloFinal, lbTituloListage, lbTituloTela,lblAnotacao;
-	private JTextField txtAssunto, txtNumIni, txtNumFinal;
+	
+	private JLabel lblAssunto, lblTipo, lbIntervaloInicial, lbIntervaloFinal;
+	private JLabel lbTituloListage, lbTituloTela,lblAnotacao, lblTitulo, lbFlags;
+	
+	private JTextField txtAssunto, txtNumIni, txtNumFinal, txtTitulo, txtFlags;
 
 	private JComboBox<String> cbxTipo, cbxAnotacao;
 	
 	private JButton btnLocalizar, btnReset, btnDebugar, btnRelatorio;
 	private JScrollPane scExercicios;
 	private JTable tbExercicios;
-	private JLabel lbFlags;
-	private JTextField txtFlags;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -157,6 +158,23 @@ public class JApp extends JFrame {
 		txtAssunto.setForeground(Color.DARK_GRAY);
 		txtAssunto.setColumns(10);
 		pnLeft.add(txtAssunto);
+		
+		lblTitulo = new JLabel("Titulo");
+		lblTitulo.setSize(new Dimension(140, 20));
+		lblTitulo.setPreferredSize(new Dimension(140, 20));
+		lblTitulo.setMinimumSize(new Dimension(140, 20));
+		lblTitulo.setMaximumSize(new Dimension(140, 20));
+		lblTitulo.setForeground(Color.LIGHT_GRAY);
+		pnLeft.add(lblTitulo);
+		
+		txtTitulo = new JTextField();
+		txtTitulo.setSize(new Dimension(140, 20));
+		txtTitulo.setPreferredSize(new Dimension(140, 20));
+		txtTitulo.setMinimumSize(new Dimension(140, 20));
+		txtTitulo.setMaximumSize(new Dimension(14, 20));
+		txtTitulo.setForeground(Color.DARK_GRAY);
+		txtTitulo.setColumns(10);
+		pnLeft.add(txtTitulo);
 		
 		//label e combobox Tipo Exercicio
 		lblTipo = new JLabel("Tipo Exercicio");
@@ -282,16 +300,16 @@ public class JApp extends JFrame {
 		scExercicios.setViewportView(tbExercicios);
 		tbExercicios.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"1", "Metodo equals String", "Exercicio"},
-				{"2", "Conceitos de UpCasting", "Exercicio"},
-				{"3", "Casting long to int", "Quiz"},
+				{"1", "String", "Metodo equals String", "Exercicio"},
+				{"2", "Cast", "Conceitos de UpCasting", "Exercicio"},
+				{"3", "Cast", "Casting long to int", "Quiz"},
 			},
 			new String[] {
-				"NUMERO", "ASSUNTO", "TIPO"
+				"NUMERO", "ASSUNTO", "TITULO", "TIPO"
 			}
 		) {
 			Class[] columnTypes = new Class[] {
-				String.class, String.class, String.class
+				String.class, String.class, Object.class, String.class
 			};
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
