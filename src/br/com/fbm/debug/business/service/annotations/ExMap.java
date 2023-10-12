@@ -55,6 +55,6 @@ public @interface ExMap {
 	 *  
 	 * @return
 	 */
-	double numero() default 0.0;
+	double numero();
 	
 }
