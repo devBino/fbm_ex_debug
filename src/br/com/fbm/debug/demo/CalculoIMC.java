@@ -18,7 +18,8 @@ import br.com.fbm.debug.business.service.annotations.ExMap;
  * propósta pelo framework.
  * 
  * Se estamos aprendendo um curso e fazendo vários exercícios,
- * basta fazer várias implementações como a realizada abaixo.
+ * basta fazer várias implementações como a realizada abaixo
+ * ao invés de criar vários projetos novos.
  * 
  * @author Fernando Bino Machado
  */
