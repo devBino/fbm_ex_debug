@@ -7,6 +7,11 @@
  */
 package br.com.fbm.debug.business.service.annotations;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
 /**
  * {@code ExMap} auxilia na localização 
  * de implementações de {@code ExService}
@@ -15,6 +20,8 @@ package br.com.fbm.debug.business.service.annotations;
  *    
  * @author Fernando Bino Machado
  */
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface ExMap {
 
 	/**
@@ -27,7 +34,7 @@ public @interface ExMap {
 	 * Define o tipo do {@code ExService}
 	 * @return
 	 */
-	String tipoExercicio() default "EXERCICIO";
+	String tipoExercicio() default "exercicio";
 	
 	/**
 	 * Define o tipo de processamento do {@code ExService}
