@@ -45,8 +45,9 @@ public class ExFactory {
 	 * @return
 	 * @throws Exception
 	 */
-	public static List<ExGeneric> listarImplementacoesPorClassReferencia(Class<? extends ExGeneric>... pImplClass)
-		throws Exception {
+	public static List<ExGeneric> listarImplementacoesPorClassReferencia(
+			final List<Class<? extends ExGeneric>> pImplClass)
+					throws Exception {
 	
 		Function<Class<?>, ExGeneric> fnMap = cl -> {
 			try {
@@ -56,7 +57,8 @@ public class ExFactory {
 			}
 		};
 		
-		return Arrays.stream(pImplClass)
+		return pImplClass
+				.stream()
 				.map(fnMap)
 				.collect(Collectors.toList());
 		
