@@ -29,6 +29,6 @@ public @interface Flags {
 	 * associar as implementações de {@code ExService}
 	 * @return
 	 */
-	String[] flags() default {};
+	String[] flags();
 	
 }
