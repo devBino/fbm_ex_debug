@@ -1,11 +1,4 @@
-/**
- * Micro Framework para Processamento de Exercícios.
- * 
- * Desenvolvido por: Fernando Bino Machado
- * Github: https://github.com/devBino
- * Projeto: https://github.com/devBino/fbm_ex_debug
- */
-package br.com.fbm.debug.demo;
+package br.com.fbm.debug.impl.exercicio;
 
 import br.com.fbm.debug.business.generic.ExGeneric;
 import br.com.fbm.debug.business.service.annotations.ExMap;
