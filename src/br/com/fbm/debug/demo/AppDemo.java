@@ -19,11 +19,10 @@ import br.com.fbm.debug.views.JApp;
 /**
  * Fornece o método main para demonstrar
  * implementações de {@code ExService}
- * 
  * @author Fernando Bino Machado
  */
 public class AppDemo {
-
+	
 	public static void main(String[] args) {
 		demoExercicios();
 		demoFactory();
@@ -36,11 +35,13 @@ public class AppDemo {
 			ExProcessor.processarImplExercicios( 
 					ExFactory.listarImplementacoesPorTipo("exercicio") );
 		}catch(Exception exception) {
-			
+			System.out.println(exception.getMessage());
+			exception.printStackTrace();
 		}
 	}
 	
 	private static void demoFactory() {
+		
 		try {
 			ExFactory.listarImplementacoesPorTipo("exercicio");
 			ExFactory.listarTodasImplementacoes();
@@ -53,24 +54,36 @@ public class AppDemo {
 					List.of(
 							CalculoIMC.class,
 							InterfaceConsumerEx.class) );
+			
+			//forçando BusinessException
+			ExFactory.listarImplementacoesPorTipo("exercicioooo");
+			
 		}catch(Exception exception) {
-			//NA
+			System.out.println(exception.getMessage());
+			exception.printStackTrace();
 		}
 	}
 	
 	private static void demoExercicios() {
 		
-		CalculoIMC calculoIMC = new CalculoIMC();
+		try {
 		
-		calculoIMC.iniciarExercicio();
-		calculoIMC.processarExercicio();
-		calculoIMC.finalizarExercicio();
-		
-		CuriosidadeChar curiosidadeChar = new CuriosidadeChar();
-		
-		curiosidadeChar.iniciarExercicio();
-		curiosidadeChar.processarExercicio();
-		curiosidadeChar.finalizarExercicio();
+			CalculoIMC calculoIMC = new CalculoIMC();
+			
+			calculoIMC.iniciarExercicio();
+			calculoIMC.processarExercicio();
+			calculoIMC.finalizarExercicio();
+			
+			CuriosidadeChar curiosidadeChar = new CuriosidadeChar();
+			
+			curiosidadeChar.iniciarExercicio();
+			curiosidadeChar.processarExercicio();
+			curiosidadeChar.finalizarExercicio();
+			
+		}catch(Exception exception) {
+			System.out.println(exception.getMessage());
+			exception.printStackTrace();
+		}
 		
 	}
 	
