@@ -14,6 +14,9 @@ import br.com.fbm.debug.business.service.annotations.Assunto;
 import br.com.fbm.debug.business.service.annotations.Flags;
 
 /**
+ * Exercicio simples com uso de lambda 
+ * na interface funcional Consumer<T>.
+ * 
  * @author Fernando Bino Machado
  */
 @Assunto("lambda")
