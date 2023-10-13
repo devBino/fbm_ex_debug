@@ -41,12 +41,12 @@ public class ExFactory {
 	 * Recebe uma ou mais {@code Class<? extends ExGeneric>}
 	 * e retorna instancias dessas classes recebidas.
 	 * 
-	 * @param pImplClass
+	 * @param pImplList
 	 * @return
 	 * @throws Exception
 	 */
 	public static List<ExGeneric> listarImplementacoesPorClassReferencia(
-			final List<Class<? extends ExGeneric>> pImplClass)
+			final List<Class<? extends ExGeneric>> pImplList)
 					throws Exception {
 	
 		Function<Class<?>, ExGeneric> fnMap = cl -> {
@@ -57,7 +57,7 @@ public class ExFactory {
 			}
 		};
 		
-		return pImplClass
+		return pImplList
 				.stream()
 				.map(fnMap)
 				.collect(Collectors.toList());
