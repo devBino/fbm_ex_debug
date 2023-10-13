@@ -12,6 +12,7 @@ import java.io.File;
 import java.math.BigDecimal;
 
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -22,6 +23,7 @@ import br.com.fbm.debug.business.generic.ExGeneric;
 import br.com.fbm.debug.business.service.annotations.Assunto;
 import br.com.fbm.debug.business.service.annotations.ExMap;
 import br.com.fbm.debug.business.service.annotations.Flags;
+import br.com.fbm.debug.repository.type.ExType;
 
 /**
  * {@code ExFactory} fornece instâncias de 
@@ -279,8 +281,10 @@ public class ExFactory {
 		
 		List<ExGeneric> listaTodosExercicios = new ArrayList<>();
 		
-		listaTodosExercicios.addAll( listarImplementacoesPorTipo("exercicio") );
-		listaTodosExercicios.addAll( listarImplementacoesPorTipo("quiz") );
+		for( ExType exType : ExType.values() ) {			
+			listaTodosExercicios.addAll( listarImplementacoesPorTipo(
+					exType.getTipo()) );
+		}
 		
 		return listaTodosExercicios;
 		
@@ -331,8 +335,10 @@ public class ExFactory {
 		
 		List<Class<?>> listaRefClasses = new ArrayList<>();
 		
-		listaRefClasses.addAll( recuperarRefClassesImpl("exercicio") );
-		listaRefClasses.addAll( recuperarRefClassesImpl("quiz") );
+		for( ExType exType : ExType.values() ) {			
+			listaRefClasses.addAll( recuperarRefClassesImpl(
+					exType.getTipo()) );
+		}
 		
 		return listaRefClasses;
 				
