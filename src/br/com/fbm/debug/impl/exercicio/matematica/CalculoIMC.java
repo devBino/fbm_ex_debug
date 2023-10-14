@@ -1,4 +1,4 @@
-package br.com.fbm.debug.impl.exercicio;
+package br.com.fbm.debug.impl.exercicio.matematica;
 
 import br.com.fbm.debug.business.generic.ExGeneric;
 import br.com.fbm.debug.business.service.annotations.ExMap;

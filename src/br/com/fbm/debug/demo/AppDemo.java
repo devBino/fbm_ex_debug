@@ -7,6 +7,13 @@
  */
 package br.com.fbm.debug.demo;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import br.com.fbm.debug.application.ExFilter;
+import br.com.fbm.debug.application.bo.ExInfoBO;
+import br.com.fbm.debug.processor.ExProcessor;
 import br.com.fbm.debug.views.JApp;
 
 /**
@@ -16,9 +23,20 @@ import br.com.fbm.debug.views.JApp;
  */
 public class AppDemo {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
-		demoTela();
+		Map<String, String> params = new HashMap<>();
+		
+		params.put("tipo", "exercicio");
+		params.put("numIni", "1");
+		params.put("numFim", "10");
+		params.put("titulo", "lambda");
+		params.put("assunto", "lambda");
+		params.put("flags", "lambda");
+		
+		final List<ExInfoBO> listExInfo = ExFilter.getInfoExerciciosImplementados(params);
+		
+		ExProcessor.processarImplExerciciosListaInfoBO(listExInfo);
 		
 	}
 	

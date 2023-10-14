@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -45,25 +46,40 @@ public class ExFilter {
 	public static List<ExInfoBO> getInfoExerciciosImplementados(final Map<String, String> pParams)
 			throws BusinessException {
 		
+		//recupera lista de Class<? extends ExGeneric>
 		final List<Class<? extends ExGeneric>> listRefImpl = tratarParamsERecuperarListaClassRef(pParams);
 		
-		final List<ExInfoBO> listaInfoBOs = listRefImpl 
+		//converte os itens para ExInfoBO baseado nas anotações
+		//de Class<? extends ExGeneric>
+		final List<Object> listaInfoBOs = listRefImpl 
 				.stream()
 				.map(cl ->{
 					try {
 						return ExInfoConverter.toBO(cl);
 					}catch(Exception ex) {
-						return null;
+						return ex;
 					}
 				})
-				.filter(bo -> bo != null)
 				.collect(Collectors.toList());
 		
-		if( listaInfoBOs.size() < listRefImpl.size() ) {
-			throw new BusinessException(Erro.ERRO_CONVERTER_METADADOS_IMPL);
+		//verifica se no escopo da interface funcional
+		//Function<T,R> na etapa intermediária map do Stream<Object>
+		//existe alguma business exception
+		Optional<BusinessException> except = listaInfoBOs
+				.stream()
+				.filter(bo -> bo instanceof BusinessException)
+				.map(bo -> (BusinessException) bo)
+				.findFirst();
+				
+		if( except.isPresent() ) {
+			throw except.get();
 		}
 		
-		return listaInfoBOs;
+		//finalmente, se tudo ok retorna uma List<ExInfoBO>
+		return listaInfoBOs
+				.stream()
+				.map(bo -> (ExInfoBO) bo)
+				.collect(Collectors.toList());
 		
 	}
 	
@@ -80,12 +96,16 @@ public class ExFilter {
 		final List<Class<? extends ExGeneric>> listRefImpl = new ArrayList<>();
 		
 		tratarParamTipo(listRefImpl, pParams.get("tipo"));
-		tratarParamTitulo(listRefImpl, pParams.get("titulo"));
-		tratarParamAssunto(listRefImpl, pParams.get("assunto"));
-		tratarParamFlags(listRefImpl, pParams.get("flags"));
 		tratarParamsIntervalo(listRefImpl, pParams.get("numIni"), pParams.get("numFim"));
 		
-		return listRefImpl;
+		final Predicate<Class<?>> predFiltro = getFiltroParamTitulo(pParams.get("titulo"))
+				.or( getFiltroParamAssunto(pParams.get("assunto")) )
+				.or( getFiltroParamFlags(pParams.get("flags")) );
+		
+		return listRefImpl
+				.stream()
+				.filter(predFiltro)
+				.collect(Collectors.toList());
 		
 	}
 	
@@ -145,7 +165,7 @@ public class ExFilter {
 			Predicate<Class<?>> filtroIntervalo = cl -> {
 				
 				if( !cl.isAnnotationPresent(ExMap.class) ) {
-					return false;
+					return true;
 				}
 				
 				ExMap ann = cl.getAnnotation(ExMap.class);
@@ -175,14 +195,15 @@ public class ExFilter {
 	 * @param pListRefImpl
 	 * @param pTitulo
 	 */
-	private static void tratarParamTitulo(final List<Class<? extends ExGeneric>> pListRefImpl, 
-			final String pTitulo) {
+	private static Predicate<Class<?>> getFiltroParamTitulo(final String pTitulo) {
+		
+		Predicate<Class<?>> filtro = cl -> false;
 		
 		if( pTitulo == null || pTitulo.isEmpty() ) {
-			return;
+			return filtro;
 		}
 		
-		Predicate<Class<?>> filtroAnnTitulo = cl -> {
+		filtro = cl -> {
 			
 			if( !cl.isAnnotationPresent(ExMap.class) ) {
 				return false;
@@ -190,11 +211,12 @@ public class ExFilter {
 			
 			ExMap ann = cl.getAnnotation(ExMap.class);
 			
-			return !ann.titulo().toLowerCase().contains(pTitulo.toLowerCase());
+			return !ann.titulo().isEmpty() 
+					&& ann.titulo().toLowerCase().contains(pTitulo.toLowerCase());
 			
 		};
 		
-		pListRefImpl.removeIf(filtroAnnTitulo);
+		return filtro;
 		
 	}
 	
@@ -203,14 +225,15 @@ public class ExFilter {
 	 * @param pListRefImpl
 	 * @param pAssunto
 	 */
-	private static void tratarParamAssunto(final List<Class<? extends ExGeneric>> pListRefImpl, 
-			final String pAssunto) {
+	private static Predicate<Class<?>> getFiltroParamAssunto(final String pAssunto) {
+	
+		Predicate<Class<?>> filtro = cl -> false;
 		
 		if( pAssunto == null || pAssunto.isEmpty() ) {
-			return;
+			return filtro;
 		}
 		
-		Predicate<Class<?>> filtroAnnAssunto = cl -> {
+		filtro = cl -> {
 			
 			if( !cl.isAnnotationPresent(Assunto.class) ) {
 				return false;
@@ -218,11 +241,12 @@ public class ExFilter {
 			
 			Assunto ann = cl.getAnnotation(Assunto.class);
 			
-			return !ann.value().toLowerCase().equals(pAssunto.toLowerCase());
+			return !ann.value().isEmpty() 
+					&& ann.value().toLowerCase().equals(pAssunto.toLowerCase());
 			
 		};
 		
-		pListRefImpl.removeIf(filtroAnnAssunto);
+		return filtro;
 		
 	}
 	
@@ -231,12 +255,13 @@ public class ExFilter {
 	 * @param pListRefImpl
 	 * @param pFlags
 	 */
-	private static void tratarParamFlags(final List<Class<? extends ExGeneric>> pListRefImpl, 
-			final String pFlags) {
+	private static Predicate<Class<?>> getFiltroParamFlags(final String pFlags) {
+	
+		Predicate<Class<?>> filtro = cl -> false;
 		
 		//valida apenas se existir flags recebidas
 		if( pFlags == null || pFlags.isEmpty() ) {
-			return;
+			return filtro;
 		}
 		
 		//divide as flags recebidas
@@ -245,7 +270,7 @@ public class ExFilter {
 		//encpsula rotina de validação, que confere
 		//se as flags da anotação possuem ao menos uma
 		//flag recebida no parametro
-		Predicate<Class<?>> filtroFlags = cl -> {
+		filtro = cl -> {
 			
 			if( !cl.isAnnotationPresent(Flags.class) ) {
 				return false;
@@ -260,11 +285,11 @@ public class ExFilter {
 					.mapToInt(flagAnn -> 1)
 					.sum();
 			
-			return qtdeFlagsMatch == 0;
+			return qtdeFlagsMatch > 0;
 			
 		};
 		
-		pListRefImpl.removeIf(filtroFlags);
+		return filtro;
 		
 	}
 	
