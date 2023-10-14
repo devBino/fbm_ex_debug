@@ -20,7 +20,11 @@ public enum Erro {
 	 */
 	ERRO_DESCONHECIDO( (byte)1, "Erro desconhecido."),
 	IMPL_NAO_ENCONTRADA( (byte)2, "Implementação não encontrada."),
-	ERRO_AO_CRIAR_INSTANCIA_REFLECTION( (byte)3, "Erro ao tentar criar uma instância via reflection");
+	IMPL_NAO_ANOTADA( (byte)3, "Implementação deve ser anotada com @ExMap"),
+	ERRO_CRIAR_INSTANCIA_REFLECTION( (byte)4, "Erro ao tentar criar uma instância via reflection"),
+	ERRO_EXECUTAR_FILTRO( (byte)5, "Erro ao tentar aplicar o filtro para buscar implementações de exercícios"),
+	ERRO_CONVERTER_METADADOS_IMPL( (byte)6, "Erro ao converter os metadados anotados na implementação");
+	
 	
 	/**
 	 * Codigo e mensagem

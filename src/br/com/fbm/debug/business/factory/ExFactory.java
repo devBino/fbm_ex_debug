@@ -38,6 +38,28 @@ public class ExFactory {
 	private static final String PACKAGE_EXERCICIOS = "br.com.fbm.debug.impl";
 	
 	/**
+	 * Recebe a classe referencia de um exercicio e retorna uma nova instância de
+	 * uma implementação de {@code ExGeneric}
+	 * @param pClass
+	 * @return
+	 * @throws BusinessException
+	 */
+	public static ExGeneric getExInstance(Class<? extends ExGeneric> pClass)
+		throws BusinessException {
+		
+		try {
+		
+			return pClass.getDeclaredConstructor().newInstance();
+		
+		}catch(final Exception exception) {
+			throw new BusinessException(Erro.ERRO_CRIAR_INSTANCIA_REFLECTION, 
+					exception);
+		}
+		
+		
+	}
+	
+	/**
 	 * Recebe uma ou mais {@code Class<? extends ExGeneric>} e retorna instancias 
 	 * dessas classes recebidas.
 	 * @param pImplList
@@ -84,7 +106,7 @@ public class ExFactory {
 		
 		try {
 			
-			for( Class<?> classImpl : recuperarTodasRefClassesImpl() ) {
+			for( Class<? extends ExGeneric> classImpl : recuperarTodasRefClassesImpl() ) {
 				
 				//listar e instanciar apenas implementações anotadas
 				//com Flag.class
@@ -129,7 +151,7 @@ public class ExFactory {
 			throw exception;
 			
 		}catch(final Exception exception) {
-			throw new BusinessException(Erro.ERRO_AO_CRIAR_INSTANCIA_REFLECTION, 
+			throw new BusinessException(Erro.ERRO_CRIAR_INSTANCIA_REFLECTION, 
 					exception);
 		}
 		
@@ -150,7 +172,7 @@ public class ExFactory {
 		
 		try {
 		
-			for( Class<?> classImpl : recuperarTodasRefClassesImpl() ) {
+			for( Class<? extends ExGeneric> classImpl : recuperarTodasRefClassesImpl() ) {
 				
 				//listar e instanciar apenas implementações anotadas
 				//com Assunto.class
@@ -181,7 +203,7 @@ public class ExFactory {
 			throw exception;
 			
 		}catch(final Exception exception) {
-			throw new BusinessException(Erro.ERRO_AO_CRIAR_INSTANCIA_REFLECTION,
+			throw new BusinessException(Erro.ERRO_CRIAR_INSTANCIA_REFLECTION,
 					exception);
 		}
 		
@@ -208,7 +230,7 @@ public class ExFactory {
 		
 		try {
 		
-			for( Class<?> classImpl : recuperarTodasRefClassesImpl() ) {
+			for( Class<? extends ExGeneric> classImpl : recuperarTodasRefClassesImpl() ) {
 				
 				//listar e instanciar apenas implementações anotadas
 				//com ExMap.class
@@ -240,7 +262,7 @@ public class ExFactory {
 			throw exception;
 			
 		}catch(final Exception exception) {
-			throw new BusinessException(Erro.ERRO_AO_CRIAR_INSTANCIA_REFLECTION, 
+			throw new BusinessException(Erro.ERRO_CRIAR_INSTANCIA_REFLECTION, 
 					exception);
 		}
 		
@@ -262,7 +284,7 @@ public class ExFactory {
 		
 		try {
 		
-			for( Class<?> classImpl : recuperarTodasRefClassesImpl() ) {
+			for( Class<? extends ExGeneric> classImpl : recuperarTodasRefClassesImpl() ) {
 			
 				//listar e instanciar apenas implementações anotadas
 				//com ExMap.class
@@ -300,7 +322,7 @@ public class ExFactory {
 			throw exception;
 			
 		}catch(final Exception exception) {
-			throw new BusinessException(Erro.ERRO_AO_CRIAR_INSTANCIA_REFLECTION, 
+			throw new BusinessException(Erro.ERRO_CRIAR_INSTANCIA_REFLECTION, 
 					exception);
 		}
 		
@@ -342,7 +364,7 @@ public class ExFactory {
 		
 		try {
 			
-			for( Class<?> classImpl : recuperarRefClassesImpl(pTipo) ) {
+			for( Class<? extends ExGeneric> classImpl : recuperarRefClassesImpl(pTipo) ) {
 				
 				//listar e instanciar apenas implementações anotadas
 				//com ExMap.class
@@ -364,7 +386,7 @@ public class ExFactory {
 			
 		}catch(final Exception exception) {
 			
-			throw new BusinessException(Erro.ERRO_AO_CRIAR_INSTANCIA_REFLECTION,
+			throw new BusinessException(Erro.ERRO_CRIAR_INSTANCIA_REFLECTION,
 					exception);
 			
 		}
@@ -379,10 +401,10 @@ public class ExFactory {
 	 * @return
 	 * @throws Exception
 	 */
-	public static List<Class<?>> recuperarTodasRefClassesImpl()
+	public static List<Class<? extends ExGeneric>> recuperarTodasRefClassesImpl()
 		throws BusinessException {
 		
-		List<Class<?>> listaRefClasses = new ArrayList<>();
+		List<Class<? extends ExGeneric>> listaRefClasses = new ArrayList<>();
 		
 		for( ExType exType : ExType.values() ) {			
 			listaRefClasses.addAll( recuperarRefClassesImpl(
@@ -401,10 +423,10 @@ public class ExFactory {
 	 * @return
 	 * @throws Exception
 	 */
-	public static List<Class<?>> recuperarRefClassesImpl(final String pTipo)
+	public static List<Class<? extends ExGeneric>> recuperarRefClassesImpl(final String pTipo)
 		 throws BusinessException {
 		
-		List<Class<?>> listaClasses = new ArrayList<>();
+		List<Class<? extends ExGeneric>> listaClasses = new ArrayList<>();
 		
 		try {
 		
@@ -425,7 +447,7 @@ public class ExFactory {
 				
 				Class<?> classImpl = Class.forName(packageImplName);
 				
-				listaClasses.add(classImpl);
+				listaClasses.add( (Class<? extends ExGeneric>) classImpl);
 				
 			}
 			

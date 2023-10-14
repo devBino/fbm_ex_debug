@@ -11,6 +11,7 @@ import java.util.function.Consumer;
 
 import br.com.fbm.debug.business.generic.ExGeneric;
 import br.com.fbm.debug.business.service.annotations.Assunto;
+import br.com.fbm.debug.business.service.annotations.ExMap;
 import br.com.fbm.debug.business.service.annotations.Flags;
 
 /**
@@ -21,6 +22,7 @@ import br.com.fbm.debug.business.service.annotations.Flags;
  */
 @Assunto("lambda")
 @Flags(flags = {"lambda","consumer"})
+@ExMap(numero = 3, titulo = "Simples exercicio com lambda na interface consumer")
 public class InterfaceConsumerEx extends ExGeneric {
 
 	Consumer<String> consumirFrase;
