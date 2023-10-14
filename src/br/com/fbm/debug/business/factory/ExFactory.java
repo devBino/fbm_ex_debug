@@ -32,7 +32,7 @@ import br.com.fbm.debug.repository.type.ExType;
 public class ExFactory {
 
 	/**
-	 * Constante para identifica package e folder padrão
+	 * Constante para identificar package e folder padrão
 	 */
 	private static final String FOLDER_EXERCICIOS = "src/br/com/fbm/debug/impl";
 	

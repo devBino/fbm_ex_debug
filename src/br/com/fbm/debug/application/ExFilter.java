@@ -165,7 +165,7 @@ public class ExFilter {
 			Predicate<Class<?>> filtroIntervalo = cl -> {
 				
 				if( !cl.isAnnotationPresent(ExMap.class) ) {
-					return true;
+					return false;
 				}
 				
 				ExMap ann = cl.getAnnotation(ExMap.class);
