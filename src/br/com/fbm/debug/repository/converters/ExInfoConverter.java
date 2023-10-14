@@ -42,8 +42,16 @@ public class ExInfoConverter {
 		bo.setClassImpl(pClassImpl);
 		
 		if( !pClassImpl.isAnnotationPresent(ExMap.class) ) {
+			
+			final StringBuilder msgCausa = new StringBuilder()
+					.append("Adicionar Anotação @ExMap em ")
+					.append("[")
+					.append(pClassImpl)
+					.append("]");
+			
 			throw new BusinessException(Erro.IMPL_NAO_ANOTADA, 
-					new Exception(Erro.IMPL_NAO_ANOTADA.getMensagem()));
+					new Exception( msgCausa.toString()));
+			
 		}
 		
 		try {

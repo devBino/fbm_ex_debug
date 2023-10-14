@@ -32,10 +32,9 @@ import br.com.fbm.debug.repository.type.ExType;
 public class ExFactory {
 
 	/**
-	 * Constantes para identificar package e folder padrão
+	 * Constante para identificar package e folder padrão
 	 */
 	private static final String FOLDER_EXERCICIOS = "src/br/com/fbm/debug/impl";
-	private static final String PACKAGE_EXERCICIOS = "br.com.fbm.debug.impl";
 	
 	/**
 	 * Recebe a classe referencia de um exercicio e retorna uma nova instância de
@@ -426,28 +425,52 @@ public class ExFactory {
 	public static List<Class<? extends ExGeneric>> recuperarRefClassesImpl(final String pTipo)
 		 throws BusinessException {
 		
-		List<Class<? extends ExGeneric>> listaClasses = new ArrayList<>();
+		final List<Class<? extends ExGeneric>> listaClasses = new ArrayList<>();
+		
+		File folderExs = new File(new StringBuilder()
+				.append(FOLDER_EXERCICIOS)
+				.append("/")
+				.append(pTipo.toLowerCase())
+				.toString()); 
+		
+		scanDefinedPacakgesImpl(listaClasses, folderExs.listFiles());
+		
+		return listaClasses;
+		
+	}
+	
+	/**
+	 * Varre o diretório padrão onde estão as implementações dos exercícios e todos 
+	 * os sub pacotes, listando todas as classes Class<? extends ExGeneric> 
+	 * referencias das implementações de exercicios
+	 * @param pListaClasses
+	 * @param pFiles
+	 * @throws BusinessException
+	 * TODO Definir algum mecanismo que permita o usuário escolher onde será o pacote base
+	 * para buscar as classes de exercícios
+	 */
+	private static void scanDefinedPacakgesImpl(final List<Class<? extends ExGeneric>> pListaClasses,
+			final File[] pFiles) throws BusinessException {
 		
 		try {
 		
-			File folderExs = new File(new StringBuilder()
-					.append(FOLDER_EXERCICIOS)
-					.append("/")
-					.append(pTipo.toLowerCase())
-					.toString()); 
+			if(pFiles == null) {
+				return;
+			}
 			
-			for(File file : folderExs.listFiles()) {
+			for( File file : pFiles ) {
 				
-				//listar apenas arquivos
-				if(file.isDirectory()) {
+				if( !file.isDirectory() ) {
+					
+					final String classPackage = getPathClassImpl(file.getPath());
+					final Class<?> classImpl = Class.forName(classPackage);
+					pListaClasses.add( (Class<? extends ExGeneric>) classImpl);
+					
 					continue;
+					
 				}
 				
-				final String packageImplName = getPathClassImpl(file, pTipo);
-				
-				Class<?> classImpl = Class.forName(packageImplName);
-				
-				listaClasses.add( (Class<? extends ExGeneric>) classImpl);
+				scanDefinedPacakgesImpl(pListaClasses, file.listFiles());
 				
 			}
 			
@@ -456,8 +479,6 @@ public class ExFactory {
 		}catch(final Exception exception) {
 			throw new BusinessException(Erro.ERRO_DESCONHECIDO);
 		}
-		
-		return listaClasses;
 		
 	}
 	
@@ -469,16 +490,14 @@ public class ExFactory {
 	 * @param tipo
 	 * @return
 	 */
-	private static String getPathClassImpl(final File file, final String tipo) {
+	private static String getPathClassImpl(String pFilePath) {
 		
-		String[] arrDirs = file.getPath().split("/");
-		String nomeImpl = arrDirs[ arrDirs.length - 1 ].replace(".java", "");
+		pFilePath = pFilePath.replace("src/", "");
+		pFilePath = pFilePath.replace(".java", "");
 		
-		return PACKAGE_EXERCICIOS
-				.concat(".")
-				.concat(tipo.toLowerCase())
-				.concat(".")
-				.concat(nomeImpl);
+		String candidatePackage = pFilePath.replaceAll("\\/", ".");
+		
+		return candidatePackage;
 		
 	}
 	
