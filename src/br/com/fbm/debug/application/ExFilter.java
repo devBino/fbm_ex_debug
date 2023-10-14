@@ -28,8 +28,8 @@ import br.com.fbm.debug.repository.type.ExType;
 
 /**
  * {@code ExFilter} tem a responsabilidade de receber os parametros vindos 
- * de {@code JApp} e devolver uma listagem de implementações de exercícios
- * representadas por {@code ExGeneric}
+ * de {@code JApp} e devolver uma listagem de matadados das implementações de exercícios
+ * representadas por {@code ExInfoBO}
  * @author Fernando Bino Machado
  */
 public class ExFilter {
