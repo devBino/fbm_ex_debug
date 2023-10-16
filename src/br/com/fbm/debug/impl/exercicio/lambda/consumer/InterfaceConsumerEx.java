@@ -1,17 +1,9 @@
-/**
- * Micro Framework para Processamento de Exercícios.
- * 
- * Desenvolvido por: Fernando Bino Machado
- * Github: https://github.com/devBino
- * Projeto: https://github.com/devBino/fbm_ex_debug
- */
-package br.com.fbm.debug.impl.exercicio;
+package br.com.fbm.debug.impl.exercicio.lambda.consumer;
 
 import java.util.function.Consumer;
 
 import br.com.fbm.debug.business.generic.ExGeneric;
-import br.com.fbm.debug.business.service.annotations.Assunto;
-import br.com.fbm.debug.business.service.annotations.Flags;
+import br.com.fbm.debug.business.service.annotations.ExMap;
 
 /**
  * Exercicio simples com uso de lambda 
@@ -19,8 +11,7 @@ import br.com.fbm.debug.business.service.annotations.Flags;
  * 
  * @author Fernando Bino Machado
  */
-@Assunto("lambda")
-@Flags(flags = {"lambda","consumer"})
+@ExMap(numero = 3, titulo = "Simples exercicio com lambda na interface consumer")
 public class InterfaceConsumerEx extends ExGeneric {
 
 	Consumer<String> consumirFrase;

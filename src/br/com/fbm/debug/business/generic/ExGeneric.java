@@ -7,12 +7,12 @@
  */
 package br.com.fbm.debug.business.generic;
 
+import br.com.fbm.debug.business.exception.BusinessException;
 import br.com.fbm.debug.business.service.iface.ExService;
 
 /**
  * {@code ExGeneric} define comportamento abstrato
  * para todos os exercícios.
- * 
  * @author Fernando Bino Machado
  */
 public abstract class ExGeneric 
@@ -30,7 +30,7 @@ public abstract class ExGeneric
 	 */
 	
 	@Override
-	public void iniciarExercicio() {
+	public void iniciarExercicio() throws BusinessException {
 		
 		saida = new StringBuilder();
 		
@@ -40,33 +40,27 @@ public abstract class ExGeneric
 	}
 	
 	@Override
-	public void processarExercicio() {
+	public void processarExercicio() throws BusinessException {
 		processarParametros();
 	}
 	
 	@Override
-	public void finalizarExercicio() {
+	public void finalizarExercicio() throws BusinessException {
 		prepararSaida();
 		exibirSaida();
 	}
-
-	
-	
 	
 	/**
 	 * Comportamentos esperados durante a execução
 	 * dos métodos comuns de exercícios
 	 */
-	
 	protected abstract Class<?> definirTipoRetorno();
-	protected abstract void iniciarParametros();
-	protected abstract void processarParametros();
+	protected abstract void iniciarParametros() throws BusinessException;
+	protected abstract void processarParametros() throws BusinessException;
 	
-	protected void prepararSaida() {
-		//NA
-	}
+	protected void prepararSaida() throws BusinessException {}
 	
-	protected void exibirSaida() {
+	protected void exibirSaida() throws BusinessException {
 		
 		saida.insert(0, "\n");
 		saida.append("\n");
@@ -75,8 +69,6 @@ public abstract class ExGeneric
 		
 	}
 	
-	
-	
 	/**
 	 * Retorna a saida resultando do processamento do exercício
 	 * @return
@@ -84,7 +76,6 @@ public abstract class ExGeneric
 	public StringBuilder getSaida() {
 		return saida;
 	}
-	
 	
 	
 }
