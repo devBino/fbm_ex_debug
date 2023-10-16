@@ -96,7 +96,7 @@ public class ExFilter {
 		final List<Class<? extends ExGeneric>> listRefImpl = new ArrayList<>();
 		
 		tratarParamTipo(listRefImpl, pParams.get("tipo"));
-		//TODO revisar concorrência nos filtros de campos de texte, titulo versus assunto e flags
+		//TODO revisar concorrência nos filtros de campos de texto, titulo versus assunto e flags
 		final Predicate<Class<?>> filtroCamposTexto = getFiltroParamTitulo( pParams.get("titulo") )
 				.or( getFiltroParamAssunto( pParams.get("assunto")) )
 				.or( getFiltroParamFlags( pParams.get("flags")) );

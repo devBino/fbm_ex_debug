@@ -47,7 +47,18 @@ public class JAppUtils {
 	 */
 	public static void addEventosButtons(final JApp pApp) {
 		
-		//adiciona evento clique no botão Localizar
+		addEventoBtnLocalizar(pApp);
+		addEventoBtnReset(pApp);
+		addEventoBtnDebugar(pApp);
+		
+	}
+	
+	/**
+	 * Adiciona evento clique no botão Localizar
+	 * @param pApp
+	 */
+	private static void addEventoBtnLocalizar(final JApp pApp) {
+		
 		ActionListener acaoBtnLocalizar = btn -> {
 			
 			try {
@@ -87,7 +98,14 @@ public class JAppUtils {
 		
 		pApp.getBtnLocalizar().addActionListener(acaoBtnLocalizar);
 		
-		//Adiciona evento clique no botão Reset
+	}
+
+	/**
+	 * Adiciona evento clique no botão Reset
+	 * @param pApp
+	 */
+	private static void addEventoBtnReset(final JApp pApp) {
+
 		ActionListener acaoBtnReset = btn -> {
 			
 			pApp.getTxtTitulo().setText("");
@@ -106,7 +124,14 @@ public class JAppUtils {
 		
 		pApp.getBtnReset().addActionListener(acaoBtnReset);
 		
-		//Adiciona evento clique no botão Debugar
+	}
+	
+	/**
+	 * Adiciona evento clique no botão Debugar
+	 * @param pApp
+	 */
+	private static void addEventoBtnDebugar(final JApp pApp) {
+		
 		ActionListener acaoBtnDebugar = btn -> {
 			
 			if( pApp.getListInfoBO().isEmpty() ) {
@@ -129,7 +154,7 @@ public class JAppUtils {
 		};
 		
 		pApp.getBtnDebugar().addActionListener(acaoBtnDebugar);
-		
+				
 	}
 	
 	/**
