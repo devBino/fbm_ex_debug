@@ -96,15 +96,15 @@ public class ExFilter {
 		final List<Class<? extends ExGeneric>> listRefImpl = new ArrayList<>();
 		
 		tratarParamTipo(listRefImpl, pParams.get("tipo"));
-		tratarParamsIntervalo(listRefImpl, pParams.get("numIni"), pParams.get("numFim"));
-		
-		final Predicate<Class<?>> predFiltro = getFiltroParamTitulo(pParams.get("titulo"))
-				.or( getFiltroParamAssunto(pParams.get("assunto")) )
-				.or( getFiltroParamFlags(pParams.get("flags")) );
+		//TODO revisar concorrência nos filtros de campos de texto, titulo versus assunto e flags
+		final Predicate<Class<?>> filtroCamposTexto = getFiltroParamTitulo( pParams.get("titulo") )
+				.or( getFiltroParamAssunto( pParams.get("assunto")) )
+				.or( getFiltroParamFlags( pParams.get("flags")) );
 		
 		return listRefImpl
 				.stream()
-				.filter(predFiltro)
+				.filter(getFiltroParamsIntervalo( pParams.get("numIni"), pParams.get("numFim") ))
+				.filter(filtroCamposTexto)
 				.collect(Collectors.toList());
 		
 	}
@@ -142,27 +142,29 @@ public class ExFilter {
 	 * @param pNumFim
 	 * @throws BusinessException
 	 */
-	private static void tratarParamsIntervalo(final List<Class<? extends ExGeneric>> pListRefImpl,
-			final String pNumIni, final String pNumFim) throws BusinessException {
+	private static Predicate<Class<?>> getFiltroParamsIntervalo(final String pNumIni, final String pNumFim) 
+			throws BusinessException {
 	
+		Predicate<Class<?>> filtro = cl -> true;
+		
 		//caso não tenha recebido numero inicial e numero final
 		if( pNumIni == null || pNumIni.isEmpty() ) {
-			return;
+			return filtro;
 		}
 		
 		if( pNumFim == null || pNumFim.isEmpty() ) {
-			return;
+			return filtro;
 		}
 		
 		try {
 			
-			//valores para comparação
-			final BigDecimal bigNumIni = new BigDecimal(pNumIni);
-			final BigDecimal bigNumFim = new BigDecimal(pNumFim);
-			
 			//Filtro para verificar se numero anotado para o 
 			//exercício está dentro do intervalo solicitado
-			Predicate<Class<?>> filtroIntervalo = cl -> {
+			filtro = cl -> {
+
+				//valores para comparação
+				final BigDecimal bigNumIni = new BigDecimal(pNumIni);
+				final BigDecimal bigNumFim = new BigDecimal(pNumFim);
 				
 				if( !cl.isAnnotationPresent(ExMap.class) ) {
 					return false;
@@ -176,11 +178,11 @@ public class ExFilter {
 				boolean intervaloValido = numAnn.compareTo( bigNumIni ) >= 0
 						&& numAnn.compareTo( bigNumFim ) <= 0;
 					
-				return !intervaloValido;
+				return intervaloValido;
 				
 			};
 			
-			pListRefImpl.removeIf(filtroIntervalo);
+			return filtro;
 			
 		}catch(final Exception exception) {
 			throw new BusinessException(Erro.ERRO_EXECUTAR_FILTRO, 
@@ -197,7 +199,7 @@ public class ExFilter {
 	 */
 	private static Predicate<Class<?>> getFiltroParamTitulo(final String pTitulo) {
 		
-		Predicate<Class<?>> filtro = cl -> false;
+		Predicate<Class<?>> filtro = cl -> true;
 		
 		if( pTitulo == null || pTitulo.isEmpty() ) {
 			return filtro;
