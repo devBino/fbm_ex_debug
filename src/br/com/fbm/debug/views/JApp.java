@@ -9,8 +9,10 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Frame;
 import java.awt.GridLayout;
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -23,7 +25,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
+
+import br.com.fbm.debug.application.bo.ExInfoBO;
+import br.com.fbm.debug.application.window.JAppUtils;
 
 public class JApp extends JFrame {
 
@@ -36,15 +40,17 @@ public class JApp extends JFrame {
 	private JPanel pnRelatorioRight, pnRelatorioBottom;
 	
 	private JLabel lblAssunto, lblTipo, lbIntervaloInicial, lbIntervaloFinal;
-	private JLabel lbTituloListage, lbTituloTela,lblAnotacao, lblTitulo, lbFlags;
+	private JLabel lbTituloListagem, lbTituloTela,lblAnotacao, lblTitulo, lbFlags;
 	
-	private JTextField txtAssunto, txtNumIni, txtNumFinal, txtTitulo, txtFlags;
+	private JTextField txtAssunto, txtNumIni, txtNumFim, txtTitulo, txtFlags;
 
 	private JComboBox<String> cbxTipo, cbxAnotacao;
 	
 	private JButton btnLocalizar, btnReset, btnDebugar, btnRelatorio;
 	private JScrollPane scExercicios;
 	private JTable tbExercicios;
+	
+	private Set<ExInfoBO> listInfoBO;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -68,6 +74,9 @@ public class JApp extends JFrame {
 		/**
 		 * Algumas propriedades desse JFrame JApp.
 		 */
+		listInfoBO = new TreeSet<>(
+				Comparator.comparing(ExInfoBO::getNumero));
+		
 		setForeground(Color.LIGHT_GRAY);
 		setBackground(Color.GRAY);
 		setExtendedState(Frame.MAXIMIZED_BOTH);
@@ -183,7 +192,6 @@ public class JApp extends JFrame {
 		
 		cbxTipo = new JComboBox<>();
 		cbxTipo.setForeground(Color.DARK_GRAY);
-		cbxTipo.setModel(new DefaultComboBoxModel(new String[] {"Lista Tipos"}));
 		pnLeft.add(cbxTipo);
 		
 		lblAnotacao = new JLabel("Anotação");
@@ -192,7 +200,6 @@ public class JApp extends JFrame {
 		
 		cbxAnotacao = new JComboBox<String>();
 		cbxAnotacao.setForeground(Color.DARK_GRAY);
-		cbxAnotacao.setModel(new DefaultComboBoxModel(new String[] {"Anotacao1","Anotacao2"}));
 		pnLeft.add(cbxAnotacao);
 		
 		//label e txt numero inicial
@@ -201,7 +208,6 @@ public class JApp extends JFrame {
 		pnLeft.add(lbIntervaloInicial);
 		
 		txtNumIni = new JTextField();
-		txtNumIni.setText("1");
 		txtNumIni.setForeground(Color.DARK_GRAY);
 		txtNumIni.setColumns(10);
 		pnLeft.add(txtNumIni);
@@ -211,11 +217,10 @@ public class JApp extends JFrame {
 		lbIntervaloFinal.setForeground(Color.LIGHT_GRAY);
 		pnLeft.add(lbIntervaloFinal);
 		
-		txtNumFinal = new JTextField();
-		txtNumFinal.setText("5");
-		txtNumFinal.setForeground(Color.DARK_GRAY);
-		txtNumFinal.setColumns(10);
-		pnLeft.add(txtNumFinal);
+		txtNumFim = new JTextField();
+		txtNumFim.setForeground(Color.DARK_GRAY);
+		txtNumFim.setColumns(10);
+		pnLeft.add(txtNumFim);
 		
 		lbFlags = new JLabel("Flags");
 		lbFlags.setForeground(Color.LIGHT_GRAY);
@@ -244,9 +249,9 @@ public class JApp extends JFrame {
 		pnCenter.add(pnListExerciciosTop, BorderLayout.NORTH);
 		
 		//label titulo listagem
-		lbTituloListage = new JLabel("3 Exercício(s) Encontrado(s)...");
-		lbTituloListage.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 14));
-		pnListExerciciosTop.add(lbTituloListage, BorderLayout.CENTER);
+		lbTituloListagem = new JLabel("");
+		lbTituloListagem.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 14));
+		pnListExerciciosTop.add(lbTituloListagem, BorderLayout.CENTER);
 		
 		//paineis para completar o border layout do painel central de listagem de exercícios
 		pnTituloListagemTop = new JPanel();
@@ -298,24 +303,6 @@ public class JApp extends JFrame {
 		tbExercicios.setFont(new Font("Ubuntu", Font.PLAIN, 13));
 		tbExercicios.setForeground(Color.DARK_GRAY);
 		scExercicios.setViewportView(tbExercicios);
-		tbExercicios.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"1", "String", "Metodo equals String", "Exercicio"},
-				{"2", "Cast", "Conceitos de UpCasting", "Exercicio"},
-				{"3", "Cast", "Casting long to int", "Quiz"},
-			},
-			new String[] {
-				"NUMERO", "ASSUNTO", "TITULO", "TIPO"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				String.class, String.class, Object.class, String.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
-		tbExercicios.getColumnModel().getColumn(0).setPreferredWidth(60);
 		
 		pnListExerciciosLeft = new JPanel();
 		pnListExerciciosLeft.setPreferredSize(new Dimension(15, 10));
@@ -340,6 +327,85 @@ public class JApp extends JFrame {
 		pnRelatorioBottom = new JPanel();
 		pnListExerciciosBottom.add(pnRelatorioBottom, BorderLayout.SOUTH);
 		
+		definirEventosJanela();
+		
 		
 	}
+	
+	/**
+	 * Métodos Getters para
+	 * Retornar os atributos do tipo JButton
+	 */
+	
+	public JButton getBtnDebugar() {
+		return btnDebugar;
+	}
+	
+	public JButton getBtnLocalizar() {
+		return btnLocalizar;
+	}
+	
+	public JButton getBtnRelatorio() {
+		return btnRelatorio;
+	}
+	
+	public JButton getBtnReset() {
+		return btnReset;
+	}
+	
+	/**
+	 * Métodos Getters para retornar os campos do filtro
+	 * txtAssunto
+		txtTitulo
+		cbxTipo
+		txtNumIni
+		txtNumFim
+		txtFlags
+	 */
+	
+	public JTextField getTxtAssunto() {
+		return txtAssunto;
+	}
+	
+	public JTextField getTxtTitulo() {
+		return txtTitulo;
+	}
+	
+	public JComboBox<String> getCbxTipo() {
+		return cbxTipo;
+	}
+	
+	public JTextField getTxtNumIni() {
+		return txtNumIni;
+	}
+	
+	public JTextField getTxtNumFim() {
+		return txtNumFim;
+	}
+	
+	public JTextField getTxtFlags() {
+		return txtFlags;
+	}
+	
+	public Set<ExInfoBO> getListInfoBO() {
+		return listInfoBO;
+	}
+	
+	public JTable getTbExercicios() {
+		return tbExercicios;
+	}
+	
+	public JLabel getLbTituloListagem() {
+		return lbTituloListagem;
+	}
+	
+	/**
+	 * Define eventos para botões e popula combobox e tabelas
+	 */
+	public void definirEventosJanela() {
+		JAppUtils.popularData(this);
+		JAppUtils.addEventosButtons(this);
+	}
+	
+	
 }

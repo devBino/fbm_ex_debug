@@ -7,71 +7,17 @@
  */
 package br.com.fbm.debug.demo;
 
-import java.util.List;
-
-import br.com.fbm.debug.business.factory.ExFactory;
-import br.com.fbm.debug.impl.exercicio.CalculoIMC;
-import br.com.fbm.debug.impl.exercicio.CuriosidadeChar;
-import br.com.fbm.debug.impl.exercicio.InterfaceConsumerEx;
-import br.com.fbm.debug.processor.ExProcessor;
 import br.com.fbm.debug.views.JApp;
 
 /**
  * Fornece o método main para demonstrar
  * implementações de {@code ExService}
- * 
  * @author Fernando Bino Machado
  */
 public class AppDemo {
-
-	public static void main(String[] args) {
-		demoExercicios();
-		demoFactory();
-		demoProcessor();
+	
+	public static void main(String[] args) throws Exception {		
 		demoTela();
-	}
-	
-	private static void demoProcessor() {
-		try {
-			ExProcessor.processarImplExercicios( 
-					ExFactory.listarImplementacoesPorTipo("exercicio") );
-		}catch(Exception exception) {
-			
-		}
-	}
-	
-	private static void demoFactory() {
-		try {
-			ExFactory.listarImplementacoesPorTipo("exercicio");
-			ExFactory.listarTodasImplementacoes();
-			ExFactory.listarImplementacoesPorTitulo("imc");
-			ExFactory.listarImplementacoesPorTitulo("char");
-			ExFactory.listarImplementacoesPorIntervalo(1, 2);
-			ExFactory.listarImplementacoesPorAssunto("lambda");
-			ExFactory.listarImplementacoesPorFlags("consumer","predicate");
-			ExFactory.listarImplementacoesPorClassReferencia(
-					List.of(
-							CalculoIMC.class,
-							InterfaceConsumerEx.class) );
-		}catch(Exception exception) {
-			//NA
-		}
-	}
-	
-	private static void demoExercicios() {
-		
-		CalculoIMC calculoIMC = new CalculoIMC();
-		
-		calculoIMC.iniciarExercicio();
-		calculoIMC.processarExercicio();
-		calculoIMC.finalizarExercicio();
-		
-		CuriosidadeChar curiosidadeChar = new CuriosidadeChar();
-		
-		curiosidadeChar.iniciarExercicio();
-		curiosidadeChar.processarExercicio();
-		curiosidadeChar.finalizarExercicio();
-		
 	}
 	
 	private static void demoTela() {
