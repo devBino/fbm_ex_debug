@@ -25,6 +25,7 @@ public class ExInfoBO {
 	private String titulo;
 	private String assunto;
 	private String flags;
+	private String tipo;
 	private Class<? extends ExGeneric> classImpl;
 	
 	/**
@@ -61,6 +62,14 @@ public class ExInfoBO {
 	
 	public void setFlags(String flags) {
 		this.flags = flags;
+	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+	
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	
 	public Class<? extends ExGeneric> getClassImpl() {

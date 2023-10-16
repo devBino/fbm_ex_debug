@@ -81,6 +81,7 @@ public class ExInfoConverter {
 		
 		pBo.setNumero( new BigDecimal( String.valueOf(exMap.numero()) ) );
 		pBo.setTitulo( exMap.titulo() );
+		pBo.setTipo( exMap.tipoExercicio() );
 		
 	}
 	
