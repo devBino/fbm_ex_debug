@@ -26,6 +26,7 @@ import br.com.fbm.debug.business.service.annotations.Flags;
 import br.com.fbm.debug.repository.converters.ExInfoConverter;
 import br.com.fbm.debug.repository.type.Erro;
 import br.com.fbm.debug.repository.type.ExType;
+import br.com.fbm.debug.repository.validators.ExValidator;
 
 /**
  * {@code ExFilter} tem a responsabilidade de receber os parametros vindos 
@@ -75,11 +76,15 @@ public class ExFilter {
 			throw except.get();
 		}
 		
-		//finalmente, se tudo ok retorna uma List<ExInfoBO>
-		return listaInfoBOs
+		final List<ExInfoBO> exercicios = listaInfoBOs
 				.stream()
 				.map(bo -> (ExInfoBO) bo)
 				.collect(Collectors.toList());
+		
+		ExValidator.validarNumeroSequencialExercicios(exercicios);
+		
+		//finalmente, se tudo ok retorna uma List<ExInfoBO>
+		return exercicios;
 		
 	}
 	
