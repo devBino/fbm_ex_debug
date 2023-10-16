@@ -31,7 +31,7 @@ public class ExValidator {
 	 * @param pListExercicios
 	 * @throws BusinessException
 	 */
-	public static void validarNumeroSequencialExercicios(final List<ExInfoBO> pListExercicios)
+	public static void validarNumerosRepetidosExercicios(final List<ExInfoBO> pListExercicios)
 		throws BusinessException {
 		
 		//se não forem encontradas implementações
@@ -48,7 +48,7 @@ public class ExValidator {
 		for( final ExInfoBO exInfo : pListExercicios ) {
 			
 			//contagem das ocorrencias da numeração
-			final int ocorrencias = mapClassNumeros
+			final int ocorrenciasNumExercicio = mapClassNumeros
 					.entrySet()
 					.stream()
 					.filter(mapNum -> exInfo.getNumero().compareTo( mapNum.getValue() ) == 0)
@@ -64,7 +64,7 @@ public class ExValidator {
 					.collect(Collectors.joining("\n"));
 			
 			//dispara erro caso mais que uma ocorrencia do mesmo numero
-			if( ocorrencias > 1 ) {
+			if( ocorrenciasNumExercicio > 1 ) {
 				
 				final StringBuilder msgErro = new StringBuilder()
 						.append("Número: ")

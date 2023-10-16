@@ -81,7 +81,7 @@ public class ExFilter {
 				.map(bo -> (ExInfoBO) bo)
 				.collect(Collectors.toList());
 		
-		ExValidator.validarNumeroSequencialExercicios(exercicios);
+		ExValidator.validarNumerosRepetidosExercicios(exercicios);
 		
 		//finalmente, se tudo ok retorna uma List<ExInfoBO>
 		return exercicios;

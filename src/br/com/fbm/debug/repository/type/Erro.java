@@ -24,7 +24,7 @@ public enum Erro {
 	ERRO_CRIAR_INSTANCIA_REFLECTION( (byte)4, "Erro ao tentar criar uma instância via reflection"),
 	ERRO_EXECUTAR_FILTRO( (byte)5, "Erro ao tentar aplicar o filtro para buscar implementações de exercícios"),
 	ERRO_CONVERTER_METADADOS_IMPL( (byte)6, "Erro ao converter os metadados anotados na implementação"),
-	ERRO_NUMERO_EXERCICIO_REPETIDO( (byte)7, "Numeros repetidos anotados em @ExMap");
+	ERRO_NUMERO_EXERCICIO_REPETIDO( (byte)7, "Números repetidos anotados em @ExMap");
 	
 	
 	/**
