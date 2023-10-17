@@ -28,17 +28,16 @@ public class StartUserApplication extends StartApplication {
 	 */
 	public static void main(String[] args) {
 
-    //define passando um var args de String, qual é o package base para agrupar os exercícios
+		//define passando um var args de String, qual é o package base para agrupar os exercícios
 		setPackageExercicios("src","br","com","demo","impl");
 
-    //exibe a janela padrão para procurar exercícios implementados no package definido acima    
+		//exibe a janela padrão para procurar exercícios implementados no package definido acima    
 		exibirWindow();
 
 
 	}
 
 }
-
 ```
 
 <br>
