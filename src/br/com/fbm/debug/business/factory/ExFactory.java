@@ -21,6 +21,8 @@ import br.com.fbm.debug.business.generic.ExGeneric;
 import br.com.fbm.debug.business.service.annotations.Assunto;
 import br.com.fbm.debug.business.service.annotations.ExMap;
 import br.com.fbm.debug.business.service.annotations.Flags;
+import br.com.fbm.debug.business.service.annotations.UserService;
+import br.com.fbm.debug.business.service.iface.ExUserService;
 import br.com.fbm.debug.repository.type.Erro;
 import br.com.fbm.debug.repository.type.ExType;
 
@@ -34,7 +36,80 @@ public class ExFactory {
 	/**
 	 * Constante para identificar package e folder padrão
 	 */
-	private static final String FOLDER_EXERCICIOS = "src/br/com/fbm/debug/impl";
+	private static String definedFolderExercicios = null;
+	
+	/**
+	 * Define pacote padrão para conter as implementações de exercícios
+	 * no projeto do usuário
+	 * @param pFolders
+	 */
+	public static void setFolderExercicios(final String... pFolders) {
+		
+		String sinalBarra = "/";
+		
+		if( String.valueOf( System.getProperty("os.name") )
+				.startsWith("Windows") ) {
+			sinalBarra = "\\";
+		}
+		
+		definedFolderExercicios = Arrays.stream(pFolders)
+				.collect(Collectors.joining(sinalBarra));
+		
+	}
+	
+	public static String getFolderExercicios() {
+		return definedFolderExercicios;
+	}
+	
+	/**
+	 * Retorna instancia de {@code ExUserService} definida pelo usuário
+	 * no pacote de implementações de exercícios.
+	 * @return
+	 * @throws BusinessException
+	 */
+	public static ExUserService getUserServiceInstance() 
+			throws BusinessException {
+		
+		ExUserService userService = null;
+		
+		try {
+			
+			File dirUserImpl = new File(definedFolderExercicios);
+			
+			for(File file : dirUserImpl.listFiles()) {
+				
+				if( file.isDirectory() ) {
+					continue;
+				}
+				
+				final String pathClass = getPathClassImpl(file.getPath());
+				final Class<?> cl = Class.forName(pathClass);
+				
+				if( !cl.isAnnotationPresent(UserService.class) ) {
+					continue;
+				}
+				
+				userService = (ExUserService) cl.getConstructor().newInstance();
+				
+				break;
+				
+			}
+			
+			if( userService == null ) {
+				throw new BusinessException(Erro.IMPL_USER_SERVICE_NAO_ENCONTRADA);
+			}
+			
+		}catch(final ClassNotFoundException exception) {
+			throw new BusinessException(Erro.IMPL_NAO_ENCONTRADA, exception);
+		}catch(final BusinessException exception) {
+			throw exception;
+		}catch(final Exception exception) {
+			throw new BusinessException(Erro.ERRO_DESCONHECIDO);
+		}
+		
+		return userService;
+		
+	}
 	
 	/**
 	 * Recebe a classe referencia de um exercicio e retorna uma nova instância de
@@ -428,7 +503,7 @@ public class ExFactory {
 		final List<Class<? extends ExGeneric>> listaClasses = new ArrayList<>();
 		
 		File folderExs = new File(new StringBuilder()
-				.append(FOLDER_EXERCICIOS)
+				.append(definedFolderExercicios)
 				.append("/")
 				.append(pTipo.toLowerCase())
 				.toString()); 

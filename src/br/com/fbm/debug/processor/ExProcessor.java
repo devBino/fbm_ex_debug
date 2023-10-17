@@ -14,6 +14,7 @@ import br.com.fbm.debug.application.bo.ExInfoBO;
 import br.com.fbm.debug.business.exception.BusinessException;
 import br.com.fbm.debug.business.factory.ExFactory;
 import br.com.fbm.debug.business.generic.ExGeneric;
+import br.com.fbm.debug.business.service.iface.ExUserService;
 
 /**
  * {@code ExProcessor} é responsável por
@@ -55,11 +56,10 @@ public class ExProcessor {
 		
 		while( itInfo.hasNext() ) {
 			
-			ExGeneric ex = ExFactory.getExInstance(itInfo.next().getClassImpl());
+			final ExUserService userService = ExFactory.getUserServiceInstance();
+			final ExGeneric ex = ExFactory.getExInstance(itInfo.next().getClassImpl());
 			
-			ex.iniciarExercicio();
-			ex.processarExercicio();
-			ex.finalizarExercicio();
+			userService.processar(ex);
 			
 		}
 		

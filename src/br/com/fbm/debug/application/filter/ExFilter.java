@@ -1,11 +1,4 @@
-/**
- * Micro Framework para Processamento de Exercícios.
- * 
- * Desenvolvido por: Fernando Bino Machado
- * Github: https://github.com/devBino
- * Projeto: https://github.com/devBino/fbm_ex_debug
- */
-package br.com.fbm.debug.application;
+package br.com.fbm.debug.application.filter;
 
 import java.math.BigDecimal;
 import java.util.Map;
