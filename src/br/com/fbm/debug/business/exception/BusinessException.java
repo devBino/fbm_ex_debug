@@ -22,12 +22,12 @@ public class BusinessException extends Exception {
 
 	/**
 	 * Define o codigo e a mensagem de erro
-	 * para comport a mensagem personalizada
+	 * para compilar a mensagem personalizada
 	 */
 	Erro erro;
 	
 	/**
-	 * Defina a causa da Exception
+	 * Define a causa da Exception
 	 */
 	Throwable throwable;
 	
@@ -55,6 +55,10 @@ public class BusinessException extends Exception {
 		throwable = pThrowable;
 		this.initCause(throwable);
 		
+	}
+	
+	public Erro getErro() {
+		return erro;
 	}
 	
 	/**

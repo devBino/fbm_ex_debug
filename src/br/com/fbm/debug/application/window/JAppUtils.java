@@ -18,7 +18,7 @@ import java.util.function.Consumer;
 
 import javax.swing.table.DefaultTableModel;
 
-import br.com.fbm.debug.application.ExFilter;
+import br.com.fbm.debug.application.filter.ExFilter;
 import br.com.fbm.debug.application.bo.ExInfoBO;
 import br.com.fbm.debug.processor.ExProcessor;
 import br.com.fbm.debug.repository.type.ExType;
@@ -26,7 +26,7 @@ import br.com.fbm.debug.repository.type.MensagemUI;
 import br.com.fbm.debug.views.JApp;
 
 /**
- * {@code JAppUtils} provÊ métodos utilitários para eventos em 
+ * {@code JAppUtils} provê métodos utilitários para eventos em 
  * {@code JApp}
  * @author Fernando Bino Machado
  */
