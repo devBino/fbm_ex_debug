@@ -521,8 +521,6 @@ public class ExFactory {
 	 * @param pListaClasses
 	 * @param pFiles
 	 * @throws BusinessException
-	 * TODO Definir algum mecanismo que permita o usuário escolher onde será o pacote base
-	 * para buscar as classes de exercícios
 	 */
 	private static void scanDefinedPacakgesImpl(final List<Class<? extends ExGeneric>> pListaClasses,
 			final File[] pFiles) throws BusinessException {

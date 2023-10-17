@@ -29,14 +29,6 @@ public abstract class ExGeneric
 	 * Métodos comuns a todo exercício 
 	 */
 	
-	public void processar() throws BusinessException {
-		
-		iniciarExercicio();
-		processarExercicio();
-		finalizarExercicio();
-		
-	}
-	
 	@Override
 	public void iniciarExercicio() throws BusinessException {
 		
