@@ -2,7 +2,9 @@
 
 <p align="justify">Autor: Fernando Bino Machado <br><br>O presente projeto consiste em um exemplo de uso do micro framework para processamento de exercícios, FBMEXDEBUG. O framework pode ser localizado e baixado da pasta <b>jarfile</b>. Com esse framework é possível implementar exercícios, mapear e aos grupar e debugar de acordo com assuntos desejados.</p>
 <br>
-<h2>Abaixo um exemplo de inicialização do framework</h2>
+<p align="justify">A utilização é bem simples, basta seguir a sequencia propósta abaixo:</p>
+<br>
+<h2>1 - Criar classe de inicialização no seu projeto</h2>
 
 ```java
 package br.com.demo.app;
@@ -41,10 +43,24 @@ public class StartUserApplication extends StartApplication {
 ```
 
 <br>
-<h2>Abaixo um exemplo de implementação de exercício</h2>
+<h2>2 - Criar implementações de exercícios como no exemplo abaixo/h2>
 
 ```java
 
+/**
+ * dentro do pacote definido como pacote dos execícios
+ * deve existir dois sub pacotes, um chamado "exercicio" e outro chamado "quiz"
+ * e dentro de cada um desses sub pacotes, podemos ter nossos pacotes separando os exercícios
+ *
+ * O exercício abaixo está nessa hierarquia, considerando que
+ * "br.com.demo.impl" foi o pacote definido como base na classe
+ * de inicialização do projeto
+ * 
+ * br.com.demo.impl
+ * 		exercicio
+ * 			matematica
+ * 		quiz
+ */ 
 package br.com.demo.impl.exercicio.matematica;
 
 import br.com.fbm.debug.business.generic.ExGeneric;
@@ -122,6 +138,44 @@ public class CalculoIMC extends ExGeneric { //a classe deve extender ExGeneric
 			
 	}
 	
+	
+}
+
+```
+
+<br>
+<h2>Implementando a classe de processamento de exercícios</h2>
+
+```java
+
+package br.com.demo.impl;
+
+import br.com.fbm.debug.business.exception.BusinessException;
+import br.com.fbm.debug.business.generic.ExGeneric;
+import br.com.fbm.debug.business.service.annotations.UserService;
+import br.com.fbm.debug.business.service.iface.ExUserService;
+
+/**
+ * O pacote configurado como pacote das implementações dos exercícios,
+ * deve possuir uma classe que implemente ExUserService, e implementar
+ * o método processar.
+ * 
+ * @author Fernando Bino Machado
+ */
+@UserService //deve ser anotada com @UserService
+public class UserServiceImpl implements ExUserService { //deve extender ExUserService
+
+	@Override
+	public void processar(ExGeneric pExGeneric) throws BusinessException {
+
+		//deve implementar o método processar
+		//e chamar os métodos abaixo do parametro exercício
+		//recebido do framework		
+		pExGeneric.iniciarExercicio();
+		pExGeneric.processarExercicio();
+		pExGeneric.finalizarExercicio();
+		
+	}
 	
 }
 
