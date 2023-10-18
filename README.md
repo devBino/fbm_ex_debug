@@ -144,7 +144,7 @@ public class CalculoIMC extends ExGeneric { //a classe deve extender ExGeneric
 ```
 
 <br>
-<h2>Implementando a classe de processamento de exercícios</h2>
+<h2>3 - Implementando a classe de processamento de exercícios</h2>
 
 ```java
 
@@ -180,3 +180,9 @@ public class UserServiceImpl implements ExUserService { //deve extender ExUserSe
 }
 
 ```
+
+<br>
+
+<p align="justify">Agora basta adicionar um <b>break point</b> dentro do método processar, e todas as implementações de ExGeneric recebidas pelo framework, passaram por esse método, e nesse momento você terá a chance de debugar todos os seus exercícios.</p>
+<br>
+<p align="justify">Talvez isso não pareça grande coisa se olhar somente para esse exemplo, mas considere que você pode implementar seus exercicios adicionando anotações @Assunto, @Flags além de @ExMap e através dessas anotações pode sistematicamente organizar seus exercícios dispensando a criação de inúmeros projetos e usando a organização que o framework provê, para sistematicamente localizar e debugar seus exercícios.</p>
