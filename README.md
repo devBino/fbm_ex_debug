@@ -43,7 +43,7 @@ public class StartUserApplication extends StartApplication {
 ```
 
 <br>
-<h2>2 - Criar implementações de exercícios como no exemplo abaixo/h2>
+<h2>2 - Criar implementações de exercícios como no exemplo abaixo</h2>
 
 ```java
 
