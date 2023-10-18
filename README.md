@@ -1,6 +1,6 @@
 # Micro Framework para Processamento de Exercícios &#129299;<br>
 
-<p align="justify">Autor: Fernando Bino Machado <br><br>O presente projeto consiste em um exemplo de uso do micro framework para processamento de exercícios, FBMEXDEBUG. O framework pode ser localizado e baixado da pasta <b>jarfile</b>. Com esse framework é possível implementar exercícios, mapear e os grupar e debugar de acordo com assuntos desejados.</p>
+<p align="justify">Autor: Fernando Bino Machado <br><br>O presente projeto consiste em um exemplo de uso do micro framework para processamento de exercícios, FBMEXDEBUG. O framework pode ser localizado e baixado da pasta <b>jarfile</b>. Com esse framework é possível implementar exercícios, mapear, os grupar e debugar vários exercícios de acordo com assuntos desejados.</p>
 <br>
 <p align="justify">A utilização é bem simples, basta seguir a sequência propósta abaixo:</p>
 <br>
@@ -48,18 +48,20 @@ public class StartUserApplication extends StartApplication {
 ```java
 
 /**
- * dentro do pacote definido como pacote dos execícios
+ * Dentro do pacote definido como pacote dos base dos execícios
  * deve existir dois sub pacotes, um chamado "exercicio" e outro chamado "quiz"
  * e dentro de cada um desses sub pacotes, podemos ter nossos pacotes separando os exercícios
+ * de acordo com nossa necessidade.
  *
  * O exercício abaixo está nessa hierarquia, considerando que
- * "br.com.demo.impl" foi o pacote definido como base na classe
- * de inicialização do projeto
+ * "br.com.demo.impl" foi o pacote definido como base dos exercícios na classe
+ * de inicialização do projeto:
  * 
- * br.com.demo.impl
- * 		exercicio
- * 			matematica
- * 		quiz
+ * br.com.demo.impl (pacote base)
+ * 		exercicio (sub pacote)
+ * 			matematica (minha organização de pacotes)
+ *				CalculoIMC.java (meu exercício)
+ * 		quiz (sub pacote)
  */ 
 package br.com.demo.impl.exercicio.matematica;
 
@@ -156,21 +158,20 @@ import br.com.fbm.debug.business.service.annotations.UserService;
 import br.com.fbm.debug.business.service.iface.ExUserService;
 
 /**
- * O pacote configurado como pacote das implementações dos exercícios,
- * deve possuir uma classe que implemente ExUserService, e implementar
- * o método processar.
+ * O pacote configurado como pacote base das implementações dos exercícios,
+ * deve possuir uma classe que implemente ExUserService
  * 
  * @author Fernando Bino Machado
  */
 @UserService //deve ser anotada com @UserService
-public class UserServiceImpl implements ExUserService { //deve extender ExUserService
+public class UserServiceImpl implements ExUserService { //deve implementar ExUserService
 
 	@Override
 	public void processar(ExGeneric pExGeneric) throws BusinessException {
 
 		//deve implementar o método processar
-		//e chamar os métodos abaixo do parametro exercício
-		//recebido do framework		
+		//e chamar os métodos abaixo pertencentes ao parametro pExGeneric
+		//recebido do framework
 		pExGeneric.iniciarExercicio();
 		pExGeneric.processarExercicio();
 		pExGeneric.finalizarExercicio();
@@ -183,6 +184,9 @@ public class UserServiceImpl implements ExUserService { //deve extender ExUserSe
 
 <br>
 
-<p align="justify">Agora basta adicionar um <b>break point</b> dentro do método processar, e todas as implementações de ExGeneric recebidas pelo framework, passaram por esse método, e nesse momento você terá a chance de debugar todos os seus exercícios.</p>
+<p align="justify">Agora basta adicionar um <b>break point</b> dentro do método processar, e todas as implementações de ExGeneric recebidas pelo framework, passaram por esse método, e nesse momento você terá a chance de debugar todos os seus exercícios. Aqui é importante dizer que quando sua aplicação iniciar, será exibida um janela padrão de pesquisa de exercícios implementados no pacote base definido. </p>
+<br>
+<p align="justify">Nessa Janela, logo após você ter localizado seus exercícios, ao clicar em <b>Debugar</b> o framework irá processar todos os exercícios localizados e passará um por um como parâmetro para esse método processar da classe UserServiceImpl exemplificada acima. Dessa forma, você terá organização e controle, e poderá consultar sua "<b>bibliotéca de exercícios</b>".</p>
+
 <br>
 <p align="justify">Talvez isso não pareça grande coisa se olhar somente para esse exemplo, mas considere que você pode implementar seus exercicios adicionando anotações @Assunto, @Flags além de @ExMap e através dessas anotações pode sistematicamente organizar seus exercícios dispensando a criação de inúmeros projetos e usando a organização que o framework provê, para sistematicamente localizar e debugar seus exercícios.</p>
