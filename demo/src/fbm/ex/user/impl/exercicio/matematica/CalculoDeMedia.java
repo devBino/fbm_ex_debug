@@ -17,7 +17,7 @@ public class CalculoDeMedia extends ExGeneric {
 	
 	@Override
 	protected Class<?> definirTipoRetorno() {
-		return float.class;
+		return Float.class;
 	}
 	
 	@Override
