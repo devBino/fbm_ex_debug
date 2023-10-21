@@ -99,7 +99,7 @@ public class UserServiceImpl implements ExUserService { //deve implementar ExUse
  *				CalculoIMC.java (meu exercício)
  * 		quiz (sub pacote)
  */ 
-package fbm.ex.user.impl.exercicio.matematica;
+package br.com.demo.impl.exercicio.matematica;
 
 import br.com.fbm.debug.business.exception.BusinessException;
 import br.com.fbm.debug.business.generic.ExGeneric;
