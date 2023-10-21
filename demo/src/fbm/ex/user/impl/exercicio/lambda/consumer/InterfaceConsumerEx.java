@@ -2,6 +2,7 @@ package fbm.ex.user.impl.exercicio.lambda.consumer;
 
 import java.util.function.Consumer;
 
+import br.com.fbm.debug.business.exception.BusinessException;
 import br.com.fbm.debug.business.generic.ExGeneric;
 import br.com.fbm.debug.business.service.annotations.ExMap;
 
@@ -18,29 +19,27 @@ public class InterfaceConsumerEx extends ExGeneric {
 	String frase;
 	
 	@Override
-	protected Class<?> definirTipoRetorno() {
-		return Object.class;
-	}
-	
-	@Override
-	protected void iniciarParametros() {
+	public void iniciarExercicio() throws BusinessException {
 		frase = "Exercicio com Interface Consumer<T>";
-		consumirFrase = System.out::println;
+		consumirFrase = System.out::println;	
 	}
 	
 	@Override
-	protected void processarParametros() {
+	public void processarExercicio() throws BusinessException {
 		//NA
 	}
 	
 	@Override
-	protected void prepararSaida() {
-		//NA
-	}
-	
-	@Override
-	protected void exibirSaida() {
+	public void finalizarExercicio() throws BusinessException {
+		
+		saida
+			.append("Enviado comando para interface Consumer<T> no seu método accept(T t)")
+			.append("consumirFrase.accept(frase);");
+
+		exibirSaida();
+		
 		consumirFrase.accept(frase);
+		
 	}
 	
 	

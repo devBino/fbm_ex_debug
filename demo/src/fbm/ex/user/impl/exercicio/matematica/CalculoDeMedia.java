@@ -16,12 +16,7 @@ public class CalculoDeMedia extends ExGeneric {
 	float calculaMedia;
 	
 	@Override
-	protected Class<?> definirTipoRetorno() {
-		return Float.class;
-	}
-	
-	@Override
-	protected void iniciarParametros() throws BusinessException {
+	public void iniciarExercicio() throws BusinessException {
 		nome = "Juliano";
 		nota1Trimestre = 45;
 		nota2Trimestre = 50;
@@ -30,23 +25,26 @@ public class CalculoDeMedia extends ExGeneric {
 	}
 
 	@Override
-	protected void processarParametros() throws BusinessException {
+	public void processarExercicio() throws BusinessException {
 		calculaMedia = (nota1Trimestre + nota2Trimestre + nota3Trimestre + nota4Trimestre) / 4;
 	}
 	
 	@Override
-	protected void prepararSaida() {
+	public void finalizarExercicio() throws BusinessException {
 		
 		saida
-		.append("Cálculo de Média Escolar")
-		.append("\nNome do aluno: " + nome)
-		.append("\nA média necessária para passar é de 50")
-		.append("\nNo 1 trimestre tirou a nota de: " + nota1Trimestre)
-		.append("\nNo 2 trimestre tirou a nota de: " + nota2Trimestre)
-		.append("\nNo 3 trimestre tirou a nota de: " + nota3Trimestre)
-		.append("\nNo 4 trimestre tirou a nota de: " + nota4Trimestre) 
-		.append("\nPortanto, nesta somatória, a média final de " + nome + " é: " + calculaMedia + "\n");
+			.append("Cálculo de Média Escolar")
+			.append("\nNome do aluno: " + nome)
+			.append("\nA média necessária para passar é de 50")
+			.append("\nNo 1 trimestre tirou a nota de: " + nota1Trimestre)
+			.append("\nNo 2 trimestre tirou a nota de: " + nota2Trimestre)
+			.append("\nNo 3 trimestre tirou a nota de: " + nota3Trimestre)
+			.append("\nNo 4 trimestre tirou a nota de: " + nota4Trimestre) 
+			.append("\nPortanto, nesta somatória, a média final de " + nome + " é: " + calculaMedia + "\n");
+		
+		exibirSaida();
 	
 	}
+	
 
 }

@@ -19,23 +19,25 @@ public class InterfacePredicateEx extends ExGeneric{
 	boolean numPar;
 	
 	@Override
-	protected Class<?> definirTipoRetorno() {
-		return Object.class;
-	}
-	
-	@Override
-	protected void iniciarParametros() throws BusinessException {
+	public void iniciarExercicio() throws BusinessException {
 		testeNumPar = num -> num % 2 == 0;
 	}
 	
 	@Override
-	protected void processarParametros() throws BusinessException {
+	public void processarExercicio() throws BusinessException {
 		numPar = testeNumPar.test(9);
 	}
 	
 	@Override
-	protected void exibirSaida() throws BusinessException {
-		System.out.println("Resultado de teste numero par => " + numPar);
+	public void finalizarExercicio() throws BusinessException {
+		
+		saida
+			.append("Resultado de teste numero par => ")
+			.append(numPar);
+		
+		exibirSaida();
+		
 	}
+	
 	
 }
