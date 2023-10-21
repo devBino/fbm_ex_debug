@@ -1,6 +1,6 @@
 # Micro Framework para Processamento de Exercícios &#129299;<br>
 
-<p align="justify">Autor: Fernando Bino Machado <br><br>O presente projeto consiste em um exemplo de uso do micro framework para processamento de exercícios, FBMEXDEBUG. O framework pode ser localizado e baixado da pasta <b>jarfile</b>. Com esse framework é possível implementar exercícios, mapear, os grupar e debugar vários exercícios de acordo com assuntos desejados.</p>
+<p align="justify">Autor: Fernando Bino Machado <br><br>O presente projeto consiste em um exemplo de uso do micro framework para processamento de exercícios, FBMEXDEBUG. O framework pode ser localizado e baixado da pasta <b>jarfile</b>. Com esse framework é possível implementar exercícios, mapear, os agrupar e debugar vários exercícios de acordo com assuntos desejados.</p>
 <br>
 <p align="justify">A utilização é bem simples, basta seguir a sequência propósta abaixo:</p>
 <br>
@@ -84,8 +84,8 @@ public class UserServiceImpl implements ExUserService { //deve implementar ExUse
 ```java
 
 /**
- * Dentro do pacote definido como pacote dos base dos execícios
- * deve existir dois sub pacotes, um chamado "exercicio" e outro chamado "quiz"
+ * Dentro do pacote definido como pacote base dos execícios
+ * devem existir dois sub pacotes, um chamado "exercicio" e outro chamado "quiz"
  * e dentro de cada um desses sub pacotes, podemos ter nossos pacotes separando os exercícios
  * de acordo com nossa necessidade.
  *
@@ -109,8 +109,8 @@ import br.com.fbm.debug.business.service.annotations.ExMap;
  * Abaixo um exemplo de implementação aparentemente insignificante de 
  * cálculo de IMC (Indice de Massa Corporal).
  * 
- * O objetivo é apenas mostrar o funcionamento e a praticidade
- * propósta pelo framework.
+ * O objetivo é apenas mostrar o funcionamento e a
+ * propósta de organização framework.
  * 
  * Se estamos aprendendo um curso e fazendo vários exercícios,
  * basta fazer várias implementações como a realizada abaixo
@@ -134,7 +134,7 @@ public class CalculoIMC extends ExGeneric {
 	 * Iniciamos o exercício, como no exemplo abaixo; nesse método podemos
 	 * iniciar os parâmetros necessários para esse exercício, que no caso
 	 * é um cálculo de IMC, então precisamos da altura e do peso, e adicionalmente
-	 * estamos adicionando o nome do sujeito...
+	 * estamos tendo o nome do sujeito...
 	 */
 	@Override
 	public void iniciarExercicio() throws BusinessException {
@@ -145,7 +145,7 @@ public class CalculoIMC extends ExGeneric {
 	
 	/**
 	 * Processamos o exercício, nessa etapa processamos os parametros 
-	 * com alguma lógica que deve produzir novas variaveis que poderão ser 
+	 * com alguma lógica que deve produzir novas variáveis que poderão ser 
 	 * usadas na saída do exercício
 	 */
 	@Override
@@ -154,13 +154,15 @@ public class CalculoIMC extends ExGeneric {
 	}
 	
 	/**
-	 * Preparamos a saida, que é um StringBuilder 
+	 * Preparamos a saida, que é um StringBuilder herdado de {@code ExGeneric}
 	 * que será utilizado para printar o texto equivalente ao resultado do 
 	 * processamento desse exercício.
 	 */
 	@Override
 	public void finalizarExercicio() throws BusinessException {
-	
+
+		//buildando a string para saida
+		//saida é um atributo StringBuilder herdado de ExGeneric
 		saida
 			.append("Valor do Calculo de IMC do ")
 			.append(nome)
