@@ -12,7 +12,7 @@ import br.com.fbm.debug.business.service.annotations.ExMap;
  * 
  * A interface funcional Function<T, R> segue a mesma lógica de lambda explicada em
  * {@code InterfaceConsumerEx} no tocante as expressões lambdas que são passadas 
- * com referência a um Single Abstract Method de uma interface funcional.
+ * como referência a um Single Abstract Method.
  * 
  * Nessa interface funcional T representa o tipo de entrada, 
  * e R representa o tipo de retorno. Então o Single Abstract Method de Function<T, R> é o

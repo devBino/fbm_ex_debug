@@ -15,13 +15,13 @@ import br.com.fbm.debug.business.service.annotations.ExMap;
  * accept(T t), que aceita um parâmetro T, que por sua vez é um Genéric tipado
  * na declaração do Consumer<T>.
  * 
- * Então para consumir strings precisamos instanciar um consumer assim
+ * Então para consumir strings precisamos declarar um consumer assim
  * 
  * Consumer<String> cons = texto -> {
  * 	//fazer alguma coisa com texto
  * };
  * 
- * de igual maneira pedemos ter diversos consumer de acordo com nossa 
+ * de igual maneira pedemos ter diversos consumers de acordo com nossa 
  * necessidade por exemplo:
  * 
  * Consumer<Integer> cons = numero -> {
@@ -40,8 +40,7 @@ import br.com.fbm.debug.business.service.annotations.ExMap;
  * O fato é que depois do sinal de igual, estamos atribuindo uma expressão, 
  * e isso chamamos de lambda, essa expressão é um lambda. 
  * Quando o método accept da interface funcional Consumer<T> 
- * for invocado, na verdade o que será executado
- * é essa expressão que passamos. 
+ * for invocado, na verdade o que será executado é essa expressão que passamos. 
  * 
  * Quando fazemos isso a referencia para o método accept de Consumer<T>
  * passa a ser essa expressão, em outras palavras é como se falassemos

@@ -10,16 +10,18 @@ import br.com.fbm.debug.business.service.annotations.ExMap;
 /**
  * Simples exemplo de uso de lambda com interface funcional Predicate<T>
  * 
- * A interface funcional predicate segue o mesmo raciocínio das demais interfaces
- * funcionais explicadas antes no exercicio 3.01 e 3.02.
+ * A interface funcional Predicate<T> segue o mesmo raciocínio das demais interfaces
+ * funcionais explicadas antes nos exercicios 3.01 e 3.02.
  * 
- * De igual modo possui um SAM (Single Abstract Method) e podemos passar uma expressão
- * lambda para a interface funcional Predicate<T>, no caso dela, o SAM é o test(T t).
+ * De igual modo possui um SAM (Single Abstract Method) e podemos passar 
+ * uma expressão lambda para a interface funcional Predicate<T>, 
+ * no caso dela, o SAM é o test(T t).
  * 
- * Esse SAM tem por objetivo retornar um booleano true ou false, que deve resultante
+ * Esse SAM tem por objetivo retornar um booleano true ou false, que deve ser resultante
  * de um teste lógico dentro da expressão lambda recebida.
  * 
- * Existem outros metodos que são default nessa interface, tais como or, and e negate.
+ * Existem outros metodos na interface Predicate<T>, mas nesse caso são default, 
+ * tais como or, and e negate.
  * 
  * @author Fernando Bino Machado
  */
