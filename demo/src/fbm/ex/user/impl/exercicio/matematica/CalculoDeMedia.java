@@ -5,7 +5,7 @@ import br.com.fbm.debug.business.generic.ExGeneric;
 import br.com.fbm.debug.business.service.annotations.ExMap;
 
 @ExMap(
-		numero = 7,
+		numero = 6,
 		titulo = "Cálculo de Média Escolar"
 )
 public class CalculoDeMedia extends ExGeneric {
@@ -34,13 +34,20 @@ public class CalculoDeMedia extends ExGeneric {
 		
 		saida
 			.append("Cálculo de Média Escolar")
-			.append("\nNome do aluno: " + nome)
-			.append("\nA média necessária para passar é de 50")
-			.append("\nNo 1 trimestre tirou a nota de: " + nota1Trimestre)
-			.append("\nNo 2 trimestre tirou a nota de: " + nota2Trimestre)
-			.append("\nNo 3 trimestre tirou a nota de: " + nota3Trimestre)
-			.append("\nNo 4 trimestre tirou a nota de: " + nota4Trimestre) 
-			.append("\nPortanto, nesta somatória, a média final de " + nome + " é: " + calculaMedia + "\n");
+			.append("\n")
+			.append("Nome do aluno: " + nome)
+			.append("\n")
+			.append("A média necessária para passar é de 50")
+			.append("\n")
+			.append("No 1 trimestre tirou a nota de: " + nota1Trimestre)
+			.append("\n")
+			.append("No 2 trimestre tirou a nota de: " + nota2Trimestre)
+			.append("\n")
+			.append("No 3 trimestre tirou a nota de: " + nota3Trimestre)
+			.append("\n")
+			.append("No 4 trimestre tirou a nota de: " + nota4Trimestre)
+			.append("\n")
+			.append("Portanto, nesta somatória, a média final de " + nome + " é: " + calculaMedia);
 		
 		exibirSaida();
 	
