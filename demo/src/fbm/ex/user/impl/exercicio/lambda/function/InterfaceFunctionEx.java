@@ -19,23 +19,25 @@ public class InterfaceFunctionEx extends ExGeneric{
 	String txtUpper;
 	
 	@Override
-	protected Class<?> definirTipoRetorno() {
-		return Object.class;
-	}
-	
-	@Override
-	protected void iniciarParametros() throws BusinessException {
+	public void iniciarExercicio() throws BusinessException {
 		transformUpper = String::toUpperCase;
 	}
 	
 	@Override
-	protected void processarParametros() throws BusinessException {
-		txtUpper = transformUpper.apply("fernando bino machado");
+	public void processarExercicio() throws BusinessException {
+		txtUpper = transformUpper.apply("fernando bino machado");	
 	}
 	
 	@Override
-	protected void exibirSaida() throws BusinessException {
-		System.out.println("Resultado do lambda transform to upper => " + txtUpper);
+	public void finalizarExercicio() throws BusinessException {
+		
+		saida
+			.append("Resultado do lambda transform to upper => ")
+			.append(txtUpper);
+		
+		exibirSaida();
+		
 	}
+	
 	
 }
