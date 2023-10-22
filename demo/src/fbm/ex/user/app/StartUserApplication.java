@@ -18,7 +18,7 @@ import br.com.fbm.debug.StartApplication;
  * 
  * @author Fernando Bino Machado
  */
-public class StartUserApplication extends StartApplication {
+public class StartUserApplication extends StartApplication { 
 	
 	/**
 	 * No método main, deve chamar os dois métodos setPackageExercicios 
