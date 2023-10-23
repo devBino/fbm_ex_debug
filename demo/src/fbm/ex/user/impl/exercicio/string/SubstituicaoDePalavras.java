@@ -12,10 +12,10 @@ public class SubstituicaoDePalavras extends ExGeneric {
 
 	//Definindo atributos importantes como:
 	
-	/* 
-	   p1Temp/p2Temp/p3Temp, onde ficará a frase com letras modificadas
-	   primeiraPalavra/segundaPalavra/terceiraPalavra, onde ficará a frase como foi definida no método 'iniciarExercicio'
-	   trocaPrimeiraPalavra/trocaSegundaPalavra/trocaTerceiraPalavra, onde ficará a frase modificada
+	/*
+	 * p1Temp/p2Temp/p3Temp, onde ficará a frase com letras modificadas
+	 * primeiraPalavra/segundaPalavra/terceiraPalavra, onde ficará a frase como foi definida no método 'iniciarExercicio'
+	 * trocaPrimeiraPalavra/trocaSegundaPalavra/trocaTerceiraPalavra, onde ficará a frase modificada
 	*/
 	
 	
@@ -51,41 +51,42 @@ public class SubstituicaoDePalavras extends ExGeneric {
 		trocaPrimeiraPalavra = primeiraPalavra.replace(primeiraPalavra, "o dia esta feio");
 		trocaSegundaPalavra = segundaPalavra.replace(segundaPalavra, "a tarde esta nublada");
 		trocaTerceiraPalavra = terceiraPalavra.replace(terceiraPalavra, "a noite esta barulhenta");
+		
 	}
 
 	@Override
 	public void finalizarExercicio() throws BusinessException {
 
 		saida 
-		
-		.append("A primeira palavra em seu estado normal é: ")
-		.append(primeiraPalavra)
-		.append("\n")
-		.append("No primeiro caso de troca (letras) é: ")
-		.append(p1Temp)
-		.append("\n")
-		.append("No caso de troca de palavra é: ")
-		.append(trocaPrimeiraPalavra)
-		.append("\n\n")		
-		.append("A segunda palavra em seu estado normal é: ")
-		.append(segundaPalavra)
-		.append("\n")
-		.append("No primeiro caso de troca (letras) é: ")
-		.append(p2Temp)
-		.append("\n")
-		.append("No caso de troca de palavra é: ")
-		.append(trocaSegundaPalavra)
-		.append("\n\n")		
-		.append("A terceira palavra em seu estado normal é: ")
-		.append(terceiraPalavra)
-		.append("\n")
-		.append("No primeiro caso de troca (letras) é: ")
-		.append(p3Temp)
-		.append("\n")
-		.append("No caso de troca de palavra é: ")
-		.append(trocaTerceiraPalavra);
+			.append("A primeira palavra em seu estado normal é: ")
+			.append(primeiraPalavra)
+			.append("\n")
+			.append("No primeiro caso de troca (letras) é: ")
+			.append(p1Temp)
+			.append("\n")
+			.append("No caso de troca de palavra é: ")
+			.append(trocaPrimeiraPalavra)
+			.append("\n\n")		
+			.append("A segunda palavra em seu estado normal é: ")
+			.append(segundaPalavra)
+			.append("\n")
+			.append("No primeiro caso de troca (letras) é: ")
+			.append(p2Temp)
+			.append("\n")
+			.append("No caso de troca de palavra é: ")
+			.append(trocaSegundaPalavra)
+			.append("\n\n")		
+			.append("A terceira palavra em seu estado normal é: ")
+			.append(terceiraPalavra)
+			.append("\n")
+			.append("No primeiro caso de troca (letras) é: ")
+			.append(p3Temp)
+			.append("\n")
+			.append("No caso de troca de palavra é: ")
+			.append(trocaTerceiraPalavra);
 		
 		exibirSaida();
+		
 	}
 
 }
