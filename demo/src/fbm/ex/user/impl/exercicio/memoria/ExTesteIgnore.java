@@ -22,20 +22,17 @@ public class ExTesteIgnore extends ExGeneric {
 
 	@Override
 	public void iniciarExercicio() throws BusinessException {
-		// TODO Auto-generated method stub
-		
+		//NA
 	}
 	
 	@Override
 	public void processarExercicio() throws BusinessException {
-		// TODO Auto-generated method stub
-		
+		//NA		
 	}
 	
 	@Override
 	public void finalizarExercicio() throws BusinessException {
-		// TODO Auto-generated method stub
-		
+		//NA
 	}
 	
 }

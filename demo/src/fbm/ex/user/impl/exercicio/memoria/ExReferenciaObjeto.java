@@ -14,6 +14,7 @@ import br.com.fbm.debug.business.service.annotations.ExMap;
 import fbm.ex.user.impl.exercicio.memoria.aux.Clube;
 
 /**
+ * Exercício de variáveis por referência x variáveis por instância
  * @author Fernando Bino Machado
  */
 @Assunto("memória")
