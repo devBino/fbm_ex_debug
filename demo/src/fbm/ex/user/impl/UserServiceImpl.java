@@ -31,4 +31,11 @@ public class UserServiceImpl implements ExUserService {
 		
 	}
 	
+	@Override
+	public void testeQuiz(ExGeneric pExGeneric, String pEnunciado, String[] pRespostas) throws BusinessException {
+
+		ExUserService.super.testeQuiz(pExGeneric, pEnunciado, pRespostas);
+		
+	}
+	
 }

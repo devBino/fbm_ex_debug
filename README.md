@@ -1,6 +1,6 @@
 # Micro Framework para Processamento de Exercícios &#129299;<br>
 
-<p align="justify">Autor: Fernando Bino Machado <br><br>O presente projeto consiste em um exemplo de uso do micro framework para processamento de exercícios, FBMEXDEBUG. O framework pode ser localizado e baixado da pasta <b>jarfile</b>. Com esse framework é possível implementar exercícios, mapear, os grupar e debugar vários exercícios de acordo com assuntos desejados.</p>
+<p align="justify">Autor: Fernando Bino Machado <br><br>O presente projeto consiste em um exemplo de uso do micro framework para processamento de exercícios, FBMEXDEBUG. O framework pode ser localizado e baixado da pasta <b>jarfile</b>. Com esse framework é possível implementar exercícios, mapear, os agrupar e debugar vários exercícios de acordo com assuntos desejados.</p>
 <br>
 <p align="justify">A utilização é bem simples, basta seguir a sequência propósta abaixo:</p>
 <br>
@@ -41,112 +41,8 @@ public class StartUserApplication extends StartApplication {
 
 }
 ```
-
 <br>
-<h2>2 - Criar implementações de exercícios como no exemplo abaixo</h2>
-
-```java
-
-/**
- * Dentro do pacote definido como pacote dos base dos execícios
- * deve existir dois sub pacotes, um chamado "exercicio" e outro chamado "quiz"
- * e dentro de cada um desses sub pacotes, podemos ter nossos pacotes separando os exercícios
- * de acordo com nossa necessidade.
- *
- * O exercício abaixo está nessa hierarquia, considerando que
- * "br.com.demo.impl" foi o pacote definido como base dos exercícios na classe
- * de inicialização do projeto:
- * 
- * br.com.demo.impl (pacote base)
- * 		exercicio (sub pacote)
- * 			matematica (minha organização de pacotes)
- *				CalculoIMC.java (meu exercício)
- * 		quiz (sub pacote)
- */ 
-package br.com.demo.impl.exercicio.matematica;
-
-import br.com.fbm.debug.business.generic.ExGeneric;
-import br.com.fbm.debug.business.service.annotations.ExMap;
-
-/**
- * Abaixo um exemplo de implementação de cálculo de IMC.
- * 
- * O objetivo é apenas mostrar um exemplo de implementação de
- * {@code ExGeneric} que representa os exercícios.
- * 
- * Se estamos aprendendo um curso e fazendo vários exercícios,
- * basta fazer várias implementações como a realizada abaixo
- * ao invés de criar vários projetos novos.
- * 
- * @author Fernando Bino Machado
- */
-@ExMap(numero = 1, titulo = "Cálculo de IMC") //anotação para mapear o exercício
-public class CalculoIMC extends ExGeneric { //a classe deve extender ExGeneric
-
-	/**
-	 * Definimos os atributos que desejamos trabalhar
-	 */
-	String nome;
-	Double altura, peso;
-	
-	/**
-	 * Definimos o tipo de retorno desse exercício
-	 * para futuros processamentos por Reflection.
-	 */
-	@Override
-	protected Class<?> definirTipoRetorno() {
-		return Double.class;
-	}
-	
-	/**
-	 * Iniciamos os parametros
-	 */
-	@Override
-	protected void iniciarParametros() {
-		nome = "Tiburcio da silva";
-		altura = 1.76;
-		peso = 71.56;
-	}
-	
-	/**
-	 * Processamos os parametros com alguma lógica
-	 * essa deve produzir o valorRetornado
-	 */
-	@Override
-	protected void processarParametros() {
-		valorRetorno = peso / (altura * altura);
-	}
-	
-	/**
-	 * Preparamos a saida, que é um StringBuilder 
-	 * que será utilizado para printar o texto equivalente a saida
-	 * preparada.
-	 */
-	@Override
-	protected void prepararSaida() {
-		
-		saida
-			.append("Valor do Calculo de IMC do ")
-			.append(nome)
-			.append("\n")
-			.append("IMC = ")
-			.append(peso)
-			.append(" / (")
-			.append(altura)
-			.append(" * ")
-			.append(altura)
-			.append(") = ")
-			.append(valorRetorno);
-			
-	}
-	
-	
-}
-
-```
-
-<br>
-<h2>3 - Implementando a classe de processamento de exercícios</h2>
+<h2>2 - Implementando a classe de processamento de exercícios</h2>
 
 ```java
 
@@ -182,6 +78,112 @@ public class UserServiceImpl implements ExUserService { //deve implementar ExUse
 
 ```
 
+<br>
+<h2>3 - Criar implementações de exercícios como no exemplo abaixo</h2>
+
+```java
+
+/**
+ * Dentro do pacote definido como pacote base dos execícios
+ * devem existir dois sub pacotes, um chamado "exercicio" e outro chamado "quiz"
+ * e dentro de cada um desses sub pacotes, podemos ter nossos pacotes separando os exercícios
+ * de acordo com nossa necessidade.
+ *
+ * O exercício abaixo está nessa hierarquia, considerando que
+ * "br.com.demo.impl" foi o pacote definido como base dos exercícios na classe
+ * de inicialização do projeto:
+ * 
+ * br.com.demo.impl (pacote base)
+ * 		exercicio (sub pacote)
+ * 			matematica (minha organização de pacotes)
+ *				CalculoIMC.java (meu exercício)
+ * 		quiz (sub pacote)
+ */ 
+package br.com.demo.impl.exercicio.matematica;
+
+import br.com.fbm.debug.business.exception.BusinessException;
+import br.com.fbm.debug.business.generic.ExGeneric;
+import br.com.fbm.debug.business.service.annotations.ExMap;
+
+/**
+ * Abaixo um exemplo de implementação aparentemente insignificante de 
+ * cálculo de IMC (Indice de Massa Corporal).
+ * 
+ * O objetivo é apenas mostrar o funcionamento e a
+ * propósta de organização framework.
+ * 
+ * Se estamos aprendendo um curso e fazendo vários exercícios,
+ * basta fazer várias implementações como a realizada abaixo
+ * ao invés de criar vários projetos novos.
+ * 
+ * @author Fernando Bino Machado
+ */
+@ExMap(
+		numero = 1,
+		titulo = "Cálculo de IMC"
+)
+public class CalculoIMC extends ExGeneric {
+
+	/**
+	 * Definimos os atributos que desejamos trabalhar
+	 */
+	String nome;
+	Double altura, peso, valorRetorno;
+	
+	/**
+	 * Iniciamos o exercício, como no exemplo abaixo; nesse método podemos
+	 * iniciar os parâmetros necessários para esse exercício, que no caso
+	 * é um cálculo de IMC, então precisamos da altura e do peso, e adicionalmente
+	 * estamos tendo o nome do sujeito...
+	 */
+	@Override
+	public void iniciarExercicio() throws BusinessException {
+		nome = "Tiburcio da silva";
+		altura = 1.76;
+		peso = 71.56;
+	}
+	
+	/**
+	 * Processamos o exercício, nessa etapa processamos os parametros 
+	 * com alguma lógica que deve produzir novas variáveis que poderão ser 
+	 * usadas na saída do exercício
+	 */
+	@Override
+	public void processarExercicio() throws BusinessException {
+		valorRetorno = peso / (altura * altura);
+	}
+	
+	/**
+	 * Preparamos a saida, que é um StringBuilder herdado de {@code ExGeneric}
+	 * que será utilizado para printar o texto equivalente ao resultado do 
+	 * processamento desse exercício.
+	 */
+	@Override
+	public void finalizarExercicio() throws BusinessException {
+
+		//buildando a string para saida
+		//saida é um atributo StringBuilder herdado de ExGeneric
+		saida
+			.append("Valor do Calculo de IMC do ")
+			.append(nome)
+			.append("\n")
+			.append("IMC = ")
+			.append(peso)
+			.append(" / (")
+			.append(altura)
+			.append(" * ")
+			.append(altura)
+			.append(") = ")
+			.append(valorRetorno);
+		
+		exibirSaida();
+			
+	}
+	
+	
+}
+
+```
 <br>
 
 <p align="justify">Agora basta adicionar um <b>break point</b> dentro do método processar, e todas as implementações de ExGeneric recebidas pelo framework, passaram por esse método, e nesse momento você terá a chance de debugar todos os seus exercícios. Aqui é importante dizer que quando sua aplicação iniciar, será exibida um janela padrão de pesquisa de exercícios implementados no pacote base definido. </p>

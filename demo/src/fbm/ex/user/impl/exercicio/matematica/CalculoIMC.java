@@ -1,11 +1,12 @@
 package fbm.ex.user.impl.exercicio.matematica;
 
+import br.com.fbm.debug.business.exception.BusinessException;
 import br.com.fbm.debug.business.generic.ExGeneric;
 import br.com.fbm.debug.business.service.annotations.ExMap;
 
 /**
- * Abaixo um exemplo de implementação
- * aparentemente insignificante de cálculo de IMC.
+ * Abaixo um exemplo de implementação aparentemente insignificante de 
+ * cálculo de IMC (Indice de Massa Corporal).
  * 
  * O objetivo é apenas mostrar o funcionamento e a praticidade
  * propósta pelo framework.
@@ -26,44 +27,39 @@ public class CalculoIMC extends ExGeneric {
 	 * Definimos os atributos que desejamos trabalhar
 	 */
 	String nome;
-	Double altura, peso;
+	Double altura, peso, valorRetorno;
 	
 	/**
-	 * Definimos o tipo de retorno desse exercício
-	 * para futuros processamentos por Reflection.
+	 * Iniciamos o exercício, como no exemplo abaixo; nesse método podemos
+	 * iniciar os parâmetros necessários para esse exercício, que no caso
+	 * é um cálculo de IMC, então precisamos da altura e do peso, e adicionalmente
+	 * estamos adicionando o nome do sujeito...
 	 */
 	@Override
-	protected Class<?> definirTipoRetorno() {
-		return Double.class;
-	}
-	
-	/**
-	 * Iniciamos os parametros
-	 */
-	@Override
-	protected void iniciarParametros() {
+	public void iniciarExercicio() throws BusinessException {
 		nome = "Tiburcio da silva";
 		altura = 1.76;
 		peso = 71.56;
 	}
 	
 	/**
-	 * Processamos os parametros com alguma lógica
-	 * essa deve produzir o valorRetornado
+	 * Processamos o exercício, nessa etapa processamos os parametros 
+	 * com alguma lógica que deve produzir novas variaveis que poderão ser 
+	 * usadas na saída do exercício
 	 */
 	@Override
-	protected void processarParametros() {
+	public void processarExercicio() throws BusinessException {
 		valorRetorno = peso / (altura * altura);
 	}
 	
 	/**
 	 * Preparamos a saida, que é um StringBuilder 
-	 * que será utilizado para printar o texto equivalente a saida
-	 * preparada.
+	 * que será utilizado para printar o texto equivalente ao resultado do 
+	 * processamento desse exercício.
 	 */
 	@Override
-	protected void prepararSaida() {
-		
+	public void finalizarExercicio() throws BusinessException {
+	
 		saida
 			.append("Valor do Calculo de IMC do ")
 			.append(nome)
@@ -76,6 +72,8 @@ public class CalculoIMC extends ExGeneric {
 			.append(altura)
 			.append(") = ")
 			.append(valorRetorno);
+		
+		exibirSaida();
 			
 	}
 	

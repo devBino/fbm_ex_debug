@@ -1,5 +1,6 @@
 package fbm.ex.user.impl.exercicio;
 
+import br.com.fbm.debug.business.exception.BusinessException;
 import br.com.fbm.debug.business.generic.ExGeneric;
 import br.com.fbm.debug.business.service.annotations.ExMap;
 
@@ -17,25 +18,19 @@ import br.com.fbm.debug.business.service.annotations.ExMap;
 public class CuriosidadeChar extends ExGeneric {
 
 	char letraA, letraB;
-	Integer numeroLetraTeste;
+	Integer numeroLetraTeste, valorRetorno;
 	
 	@Override
-	protected Class<?> definirTipoRetorno() {
-		return Integer.class;
-	}
-	
-	@Override
-	protected void iniciarParametros() {
-		
-		//atribuindo letras ou numeros temos
-		//um char
+	public void iniciarExercicio() throws BusinessException {
+
+		//atribuindo letras ou numeros temos uma variavel do tipo char
 		letraA = 'A';
 		letraB = 66;
 		
 	}
 	
 	@Override
-	protected void processarParametros() {
+	public void processarExercicio() throws BusinessException {
 		
 		//char possui uma representação numérica na 
 		//tabela ASCII, por isso podemos até 
@@ -49,7 +44,7 @@ public class CuriosidadeChar extends ExGeneric {
 	}
 	
 	@Override
-	protected void prepararSaida() {
+	public void finalizarExercicio() throws BusinessException {
 		
 		saida
 			.append("Resultado de ")
@@ -61,6 +56,8 @@ public class CuriosidadeChar extends ExGeneric {
 			.append("\nO resultado de ")
 			.append("numeroLetraTeste = Integer.valueOf('A'); = ")
 			.append(numeroLetraTeste);
+		
+		exibirSaida();
 		
 	}
 	
