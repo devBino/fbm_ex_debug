@@ -21,28 +21,26 @@ import br.com.fbm.debug.business.service.annotations.Repetir;
  * 
  * @author Fernando Bino Machado
  */
-@Repetir(10)
+@Repetir(2)
 @ExMap(numero = 12, titulo = "Imprime DateTime apenas para testar anotação @Repetir")
 public class ExDatasTesteRepeticao extends ExGeneric {
 
 	@Override
 	public void iniciarExercicio() throws BusinessException {
-		//NA
+		System.out.println("Testando datas " + LocalDateTime.now());
+		delay(2, TimeUnit.SECONDS);
 	}
 	
 	@Override
 	public void processarExercicio() throws BusinessException {
-		//NA
+		System.out.println("Testando datas " + LocalDateTime.now());
+		delay(2, TimeUnit.SECONDS);
 	}
 	
 	@Override
 	public void finalizarExercicio() throws BusinessException {
-		try {
-			TimeUnit.SECONDS.sleep(1);
-			System.out.println("Data Atual => " + LocalDateTime.now());
-		}catch(final Exception exception) {
-			exception.printStackTrace();
-		}
+		System.out.println("Testando datas " + LocalDateTime.now());
+		delay(2, TimeUnit.SECONDS);
 	}
 	
 }
