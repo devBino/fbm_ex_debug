@@ -1,4 +1,4 @@
-# Micro Framework para Processamento de Exercícios &#129299;<br>
+# Micro Framework para Processamento de Exercícios <br>
 
 <h2 id="h2-sumario">Sumario</h2>
 
