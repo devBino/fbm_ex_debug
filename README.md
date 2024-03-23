@@ -15,7 +15,7 @@
 
 <h2 id="h2-inicializacao-auto">2 - Inicialização do Projeto com inicializador de Projetos</h2><br>
 
-<p align="justify">É possível utilizar o gerador de projetos para iniciar um projeto de Exercícios nos padrões do framework, para isso basta baixar o jarfile na pasta generator.</p>
+<p align="justify">É possível utilizar o gerador de projetos para iniciar um projeto de Exercícios nos padrões do framework, para isso basta baixar o jarfile na pasta generator. Após ter baixado o jarfile, execute o programa e siga os passos abaixo:</p>
 <br>
 
 <p align="justify">Preencha os campos de acordo com a necessidade do seu projeto</p>
