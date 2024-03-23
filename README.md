@@ -1,17 +1,22 @@
 # Micro Framework para Processamento de Exercícios &#129299;<br>
 
-<h1 id="h1-sumario">Sumario</h1>
+<h2 id="h2-sumario">Sumario</h2>
 
 <ul>
 	<li><a href="#h2-introducao">1 - Introdução</a> </li>
 	<li><a href="#h2-inicializacao-auto">2 - Inicialização Automática</a></li>
 	<li><a href="#h2-inicializacao-manual">3 - Inicialização Manual</a></li>
+	<li><a href="#h2-como-debugar">4 - Debudando</a></li>
 </ul>
 
 <h2 id="h2-introducao">1 - Introdução</h2><br>
 
 <p align="justify">Autor: Fernando Bino Machado <br><br>O presente projeto consiste em um exemplo de uso do micro framework para processamento de exercícios, FBMEXDEBUG. O framework pode ser localizado e baixado da pasta <b>jarfile</b>. Com esse framework é possível implementar exercícios, mapear, os agrupar e debugar vários exercícios de acordo com assuntos desejados.</p>
+
 <br>
+<a href="#sumario">Voltar Sumário</a>
+<br>
+
 
 <h2 id="h2-inicializacao-auto">2 - Inicialização do Projeto com inicializador de Projetos</h2><br>
 
@@ -34,6 +39,8 @@
 
 ![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/confirmacao.png)
 
+<br>
+<a href="#sumario">Voltar Sumário</a>
 <br>
 
 <h2 id="h2-inicializacao-manual">3 - Inicialização Manual de Projeto</h2><br>
@@ -222,9 +229,20 @@ public class CalculoIMC extends ExGeneric {
 ```
 <br>
 
+<br>
+<a href="#sumario">Voltar Sumário</a>
+<br>
+
+<h2 id="h2-como-debugar">4 - Como Debugar</h2>
+
 <p align="justify">Agora basta adicionar um <b>break point</b> dentro do método processar, e todas as implementações de ExGeneric recebidas pelo framework, passaram por esse método, e nesse momento você terá a chance de debugar todos os seus exercícios. Aqui é importante dizer que quando sua aplicação iniciar, será exibida um janela padrão de pesquisa de exercícios implementados no pacote base definido. </p>
 <br>
 <p align="justify">Nessa Janela, logo após você ter localizado seus exercícios, ao clicar em <b>Debugar</b> o framework irá processar todos os exercícios localizados e passará um por um como parâmetro para esse método processar da classe UserServiceImpl exemplificada acima. Dessa forma, você terá organização e controle, e poderá consultar sua "<b>bibliotéca de exercícios</b>".</p>
 
 <br>
 <p align="justify">Talvez isso não pareça grande coisa se olhar somente para esse exemplo, mas considere que você pode implementar seus exercicios adicionando anotações @Assunto, @Flags além de @ExMap e através dessas anotações pode sistematicamente organizar seus exercícios dispensando a criação de inúmeros projetos e usando a organização que o framework provê, para sistematicamente localizar e debugar seus exercícios.</p>
+
+<br>
+<a href="#sumario">Voltar Sumário</a>
+<br>
+
