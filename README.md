@@ -19,13 +19,20 @@
 <br>
 
 <p align="justify">Preencha os campos de acordo com a necessidade do seu projeto</p>
-![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/tela_campos.png)<br>
+
+![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/tela_campos.png)
+
+<br>
 
 <p align="justify">Em seguida uma barra de progresso e logs serão exibidos</p>
-![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/clique_concluir.png)<br>
+
+![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/clique_concluir.png)
+
+<br>
 
 <p align="justify">Aguarde até a conclusão tal como abaixo</p>
-![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/confirmacao.png)<br>
+
+![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/confirmacao.png)
 
 <br>
 
