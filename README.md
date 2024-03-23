@@ -1,5 +1,7 @@
 # Micro Framework para Processamento de Exercícios <br>
 
+Autor: Fernando Bino Machado <br><br>
+
 <h2 id="h2-sumario">Sumario</h2>
 
 <ul>
@@ -11,7 +13,11 @@
 
 <h2 id="h2-introducao">1 - Introdução</h2><br>
 
-<p align="justify">Autor: Fernando Bino Machado <br><br>O presente projeto consiste em um micro framework para processamento de exercícios, FBMEXDEBUG. O framework pode ser localizado e baixado da pasta <b>jarfile</b>. Com esse framework é possível implementar exercícios, mapear, os agrupar e debugar vários exercícios de acordo com assuntos desejados.</p>
+<p align="justify">Quem nunca começou um curso ou uma play-list no youtube sobre algum tema de programação, tal como, herança, interfaces, tipos primitivos, lambda etc. Enquanto assisitimos ao conteúdo é natural espalharmos um bilhão de classes com qualquer nome e um salvador método main. No momento inicial de conhecer os conceitos, essas classes milagrosas funcionam bem, mas as semanas passam e depois vamos precisar novamente daquele determinado tema. E agora, como encontrar essas classes milagrosas espalhadas em vários projetos sem padrão algum? A saída é recorrer ao mesmo video/conteúdo visto semanas antes e irônicamente produzir mais uma classe e mais um método main em qualquer lugar por acaso...</p>
+<p align="justify">Não que isso seja errado, só é uma pratica ruim, principalmente quando estamos aprendendo algo novo. E que tal se pudessemos aprender esses temas importantes e formar nossa própria bibliotéca pessoal de classes, exemplos, e cases? Que tal se o aprendizado fosse documentado com comentários e explicações? Exemplos didáticos no próprio código fáceis de localizar, otimizando tempo no aprendizado e consolidando cada vez mais nosso conhecimento?</p>
+<p align="justify">Refletindo muito sobre essa necessidade comum a todos, desenvolvi o presente projeto que consiste em um micro framework para processamento de exercícios chamado FBMEXDEBUG. Com ele podemos criar exercícios padronizados, com anotações do framework, permitindo filtrar facilmente os exercícios por titulo, tema ou numeração da aula. Esse projeto apresenta uma solução ao problema recorrente que todos passamos, pois organiza nosso aprendizado e permite que se apropriemos do que aprendemos, o aprendizado se torna nossa experiência pessoal documentada, e com propriedade vamos buscá-lo no futuro, não em um fórum, mas na nossa bibliotéca pessoal de exercícios.
+</p>
+<p align="justify">Existem algumas maneiras de utilizar o framework que envolvem desde baixar o jarfile e criar nosso projeto seguindo passo a passo, até mesmo utilizar um inicilializador automático de projeto no padrão do framework.</p>
 
 <br>
 <a href="#sumario">Voltar Sumário</a>
