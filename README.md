@@ -3,17 +3,17 @@
 <h1 id="h1-sumario">Sumario</h1>
 
 <ul>
-	<li><a href="#h2-introducao">Introdução</a> </li>
-	<li><a href="#h2-inicializacao-auto">Inicialização Automática</a></li>
-	<li><a href="#h2-inicializacao-manual">Inicialização Manual</a></li>
+	<li><a href="#h2-introducao">1 - Introdução</a> </li>
+	<li><a href="#h2-inicializacao-auto">2 - Inicialização Automática</a></li>
+	<li><a href="#h2-inicializacao-manual">3 - Inicialização Manual</a></li>
 </ul>
 
-<h2 id="h2-introducao">Introdução</h2><br>
+<h2 id="h2-introducao">1 - Introdução</h2><br>
 
 <p align="justify">Autor: Fernando Bino Machado <br><br>O presente projeto consiste em um exemplo de uso do micro framework para processamento de exercícios, FBMEXDEBUG. O framework pode ser localizado e baixado da pasta <b>jarfile</b>. Com esse framework é possível implementar exercícios, mapear, os agrupar e debugar vários exercícios de acordo com assuntos desejados.</p>
 <br>
 
-<h2 id="h2-inicializacao-auto">Inicialização do Projeto com inicializador de Projetos</h2><br>
+<h2 id="h2-inicializacao-auto">2 - Inicialização do Projeto com inicializador de Projetos</h2><br>
 
 <p align="justify">É possível utilizar o gerador de projetos para iniciar um projeto de Exercícios nos padrões do framework, para isso basta baixar o jarfile na pasta generator.</p>
 <br>
@@ -29,11 +29,11 @@
 
 <br>
 
-<h2 id="h2-inicializacao-manual">Inicialização Manual de Projeto</h2><br>
+<h2 id="h2-inicializacao-manual">3 - Inicialização Manual de Projeto</h2><br>
 
 <p align="justify">A inicialização manual de um projeto é bem simples, basta seguir a sequência propósta abaixo:</p>
 <br>
-<h3>1 - Criar classe de inicialização no seu projeto</h3>
+<h3>3.1 - Criar classe de inicialização no seu projeto</h3>
 
 ```java
 package br.com.demo.app;
@@ -71,7 +71,7 @@ public class StartUserApplication extends StartApplication {
 }
 ```
 <br>
-<h3>2 - Implementando a classe de processamento de exercícios</h3>
+<h3>3.2 - Implementando a classe de processamento de exercícios</h3>
 
 ```java
 
@@ -108,7 +108,7 @@ public class UserServiceImpl implements ExUserService { //deve implementar ExUse
 ```
 
 <br>
-<h3>3 - Criar implementações de exercícios como no exemplo abaixo</h3>
+<h3>3.3 - Criar implementações de exercícios como no exemplo abaixo</h3>
 
 ```java
 
