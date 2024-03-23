@@ -8,27 +8,29 @@
 	<li><a href="#h2-inicializacao-manual">Inicialização Manual</a></li>
 </ul>
 
-<h2 id="h2-introducao"></h2><br>
+<h2 id="h2-introducao">Introdução</h2><br>
+
 <p align="justify">Autor: Fernando Bino Machado <br><br>O presente projeto consiste em um exemplo de uso do micro framework para processamento de exercícios, FBMEXDEBUG. O framework pode ser localizado e baixado da pasta <b>jarfile</b>. Com esse framework é possível implementar exercícios, mapear, os agrupar e debugar vários exercícios de acordo com assuntos desejados.</p>
 <br>
 
-<h2>Inicialização do Projeto com inicializador de Projetos</h2>
+<h2 id="h2-inicializacao-auto">Inicialização do Projeto com inicializador de Projetos</h2><br>
+
 <p align="justify">É possível utilizar o gerador de projetos para iniciar um projeto de Exercícios nos padrões do framework, para isso basta baixar o jarfile na pasta generator.</p>
 <br>
 
-<h3>Preencha os campos de acordo com a necessidade do seu projeto</h3><br>
+<p align="justify">Preencha os campos de acordo com a necessidade do seu projeto</p><br>
 ![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/tela_campos.png)<br>
 
-<h3>Em seguida uma barra de progresso e logs serão exibidos</h3><br>
+<p align="justify">Em seguida uma barra de progresso e logs serão exibidos</p><br>
 ![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/clique_concluir.png)<br>
 
-<h3>Aguarde até a conclusão tal como abaixo</h3><br>
+<p align="justify">Aguarde até a conclusão tal como abaixo</p><br>
 ![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/confirmacao.png)<br>
 
 <br>
 
-<h2>Inicialização Manual de Projeto</h2>
-<br>
+<h2 id="h2-inicializacao-manual">Inicialização Manual de Projeto</h2><br>
+
 <p align="justify">A inicialização manual de um projeto é bem simples, basta seguir a sequência propósta abaixo:</p>
 <br>
 <h3>1 - Criar classe de inicialização no seu projeto</h3>
