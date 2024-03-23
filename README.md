@@ -6,7 +6,7 @@
 	<li><a href="#h2-introducao">1 - Introdução</a> </li>
 	<li><a href="#h2-inicializacao-auto">2 - Inicialização Automática</a></li>
 	<li><a href="#h2-inicializacao-manual">3 - Inicialização Manual</a></li>
-	<li><a href="#h2-como-debugar">4 - Debudando</a></li>
+	<li><a href="#h2-como-debugar">4 - Debugando Exercícios</a></li>
 </ul>
 
 <h2 id="h2-introducao">1 - Introdução</h2><br>
@@ -233,7 +233,7 @@ public class CalculoIMC extends ExGeneric {
 <a href="#sumario">Voltar Sumário</a>
 <br>
 
-<h2 id="h2-como-debugar">4 - Como Debugar</h2>
+<h2 id="h2-como-debugar">4 - Debugando Exercícios</h2>
 
 <p align="justify">Agora basta adicionar um <b>break point</b> dentro do método processar, e todas as implementações de ExGeneric recebidas pelo framework, passaram por esse método, e nesse momento você terá a chance de debugar todos os seus exercícios. Aqui é importante dizer que quando sua aplicação iniciar, será exibida um janela padrão de pesquisa de exercícios implementados no pacote base definido. </p>
 <br>
