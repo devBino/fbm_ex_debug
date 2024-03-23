@@ -6,8 +6,17 @@
 <h2>Inicialização do Projeto com inicializador de Projetos</h2>
 <p align="justify">É possível utilizar o gerador de projetos para iniciar um projeto de Exercícios nos padrões do framework, para isso basta baixar o jarfile na pasta generator.</p>
 <br>
-![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/tela_campos.png)
-![Gráfico de Linhas](https://raw.githubusercontent.com/devBino/file_repo/master/study_junit_plus_restassured/spi/grafico_spi.png)
+
+<h3>Preencha os campos de acordo com a necessidade do seu projeto</h3><br>
+![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/tela_campos.png)<br>
+
+<h3>Em seguida uma barra de progresso e logs serão exibidos</h3><br>
+![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/clique_concluir.png)<br>
+
+<h3>Aguarde até a conclusão tal como abaixo</h3><br>
+![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/confirmacao.png)<br>
+
+<br>
 
 <h2>Inicialização Manual de Projeto</h2>
 <br>
