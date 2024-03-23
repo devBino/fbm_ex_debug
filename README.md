@@ -7,6 +7,7 @@
 <p align="justify">É possível utilizar o gerador de projetos para iniciar um projeto de Exercícios nos padrões do framework, para isso basta baixar o jarfile na pasta generator.</p>
 <br>
 ![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/tela_campos.png)
+![Gráfico de Linhas](https://raw.githubusercontent.com/devBino/file_repo/master/study_junit_plus_restassured/spi/grafico_spi.png)
 
 <h2>Inicialização Manual de Projeto</h2>
 <br>
