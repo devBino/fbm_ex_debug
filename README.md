@@ -11,7 +11,7 @@
 
 <h2 id="h2-introducao">1 - Introdução</h2><br>
 
-<p align="justify">Autor: Fernando Bino Machado <br><br>O presente projeto consiste em um exemplo de uso do micro framework para processamento de exercícios, FBMEXDEBUG. O framework pode ser localizado e baixado da pasta <b>jarfile</b>. Com esse framework é possível implementar exercícios, mapear, os agrupar e debugar vários exercícios de acordo com assuntos desejados.</p>
+<p align="justify">Autor: Fernando Bino Machado <br><br>O presente projeto consiste em um micro framework para processamento de exercícios, FBMEXDEBUG. O framework pode ser localizado e baixado da pasta <b>jarfile</b>. Com esse framework é possível implementar exercícios, mapear, os agrupar e debugar vários exercícios de acordo com assuntos desejados.</p>
 
 <br>
 <a href="#sumario">Voltar Sumário</a>
