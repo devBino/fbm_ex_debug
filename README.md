@@ -127,11 +127,25 @@ Autor: Fernando Bino Machado <br><br>
 
 <p align="justify">O framework disponibiliza várias anotações que podemos utilizar em nossos exercícios, tais como @Assunto, @ExMap, @Flags, @Ignore e @Repetir. A seguir veremos um breve resumo de cada uma.</p>
 
-<p align="justify"><b id="b-ann-Assunto">5.1 - @Assunto - </b> ... </p>
-<p align="justify"><b id="b-ann-ExMap">5.2 - @ExMap - </b> ... </p>
+<p align="justify"><b id="b-ann-Assunto">5.1 - @Assunto - </b> Podemos utilizar essa anotação para agrupar exercícios por assunto, por exemplo se estamos estudando sobre interfaces, e temos vários exercícios sobre interfaces, na declaração da classe do nosso exercício podemos adicionar a anotação da seguinte maneira: 
+<br> @Assunto("interfaces")<br> 
+dessa podemos pesquisar todos os exercícios por determinado assunto na tela de pesquisa.</p>
+<a href="#sumario">Sumário</a>
+
+<p align="justify"><b id="b-ann-ExMap">5.2 - @ExMap - </b> Essa anotação é util quando estamos realizando um curso, e criamos um projeto de exercícios para esse curso, assim podemos utilizar @ExMap para anotar os exercícios vinculando a eles um número e título, onde o número pode ser o número da aula, e o título o título dessa aula. Por exemplo: 
+<br>@ExMap(numero=11, titulo="Como usar o if ternário")<br>
+</p>
+<a href="#sumario">Sumário</a>
+
 <p align="justify"><b id="b-ann-Flags">5.3 - @Flags - </b> ... </p>
+<a href="#sumario">Sumário</a>
+
 <p align="justify"><b id="b-ann-Ignore">5.4 - @Ignore - </b> ... </p>
+<a href="#sumario">Sumário</a>
+
 <p align="justify"><b id="b-ann-Repetir">5.5 - @Repetir - </b> ... </p>
+<a href="#sumario">Sumário</a>
+
 
 
 
