@@ -138,7 +138,7 @@ Dessa forma podemos localizar o exercício pelo título contendo as palavras "if
 </p>
 <a href="#sumario">Sumário</a>
 
-<p align="justify"><b id="b-ann-Flags">5.3 - @Flags - </b>Essa anotação é útil quando um exercício pode ser associado a mais de um termo de forma que facilite sua localização, por exemplo se o assunto principal for sobre cast entre tipos primitivos, poderíamos ate utilizar o exemplo abaixo: 
+<p align="justify"><b id="b-ann-Flags">5.3 - @Flags - </b>Essa anotação é útil quando um exercício pode ser associado a mais de um termo de forma que facilite sua localização, por exemplo se o assunto principal for sobre casting entre tipos primitivos, podemos utilizar o exemplo abaixo: 
 <br>@Flags(flags = {"casting","conversao"})<br>
 Assim é possível encontrar o exercício informando uma das flags.
 </p>
@@ -147,10 +147,7 @@ Assim é possível encontrar o exercício informando uma das flags.
 <p align="justify"><b id="b-ann-Ignore">5.4 - @Ignore - </b>Todo exercício anotado com @Ignore será ignorado e por mais que exista, não será retornado na janela de pesquisas.</p>
 <a href="#sumario">Sumário</a>
 
-<p align="justify"><b id="b-ann-Repetir">5.5 - @Repetir - </b>Um exercício pode ser repetido uma ou mais vezes. Por exemplo se queremos repetir o exercício 10 vezes podemos usar a anotação da seguinte maneira 
-<br>@Repetir(10)<br>
-É importante destacar que um exercício por padrão só pode ser repetido até 100 vezes.
-</p>
+<p align="justify"><b id="b-ann-Repetir">5.5 - @Repetir - </b>Um exercício pode ser repetido uma ou mais vezes. Por exemplo se queremos repetir o exercício 10 vezes podemos usar a anotação da seguinte maneira @Repetir(10)</p>
 <a href="#sumario">Sumário</a>
 
 
