@@ -4,6 +4,18 @@ Autor: Fernando Bino Machado <br><br>
 
 <h2 id="h2-sumario">Sumario</h2>
 
+- Item de lista 1
+- Item de lista 2
+  - Subitem 2.1
+  - Subitem 2.2
+- Item de lista 3
+  - Subitem 3.1
+    - Subitem 3.1.1
+    - Subitem 3.1.2
+  - Subitem 3.2
+- Item de lista 4
+
+
 <ul>
 	<li><a href="#h2-introducao">1 - Introdução</a> </li>
 	<li><a href="#h2-iniciando">2 - Iniciando Projeto de Exercícios</a></li>
