@@ -55,6 +55,12 @@ Autor: Fernando Bino Machado <br><br>
 
 ![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/estrutura_projeto.png)
 
+<p align="justify">A seguir faremos um breve comentário sobre cada item importante.</p>
+
+<p align="justify"><b>StartUserAplication.java</b> </b>Dentro do pacote app, essa classe é responsável por iniciar a janela, isto é, interface que permite filtrarmos e pesquisarmos os exercícios que criamos, então dentro de StartUserAplication.java existe um método main que basicamente abrirá a seguinte janela:</p>
+
+![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/janela_pesquisa.png)
+
 <br>
 <a href="#sumario">Voltar Sumário</a>
 <br>
