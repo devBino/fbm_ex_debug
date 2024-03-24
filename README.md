@@ -87,7 +87,7 @@ Autor: Fernando Bino Machado <br><br>
 
 <a href="#sumario">Sumário</a>
 
-<p align="justify"><b id="b-impl.exercicio">3.4 - Pacote impl.exercicio - </b>Dentro do pacote exercicio, como deve ter percebido é o local onde deverão ser feitos todos os seus exercícios para que o framework possa localizar, você até pode se organizar e criar subpacotes dentro do pacote impl.exercicio, pois o framework já está preparado para identificar qualquer exercício começando hierarquicamente do pacote imple.exercicio para baixo, como podemos observar nesse exemplo:</p>
+<p align="justify"><b id="b-impl.exercicio">3.4 - Pacote impl.exercicio - </b>Dentro do pacote exercicio, como deve ter percebido é o local onde deverão ser feitos todos os seus exercícios para que o framework possa localizar, você até pode se organizar e criar subpacotes dentro do pacote impl.exercicio, pois o framework já está preparado para identificar qualquer exercício começando hierarquicamente do pacote impl.exercicio para baixo, como podemos observar nesse exemplo:</p>
 
 ![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/exemplo_pacote_exercicio.png)
 
