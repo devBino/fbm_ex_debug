@@ -74,7 +74,7 @@ Autor: Fernando Bino Machado <br><br>
 
 ![Janela de Pesquisa de Exercícios](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/janela_pesquisa.png)
 
-<a href="#sumario">Sumário</a>
+<a href="#sumario">Voltar Sumário</a>
 
 <p align="justify"><b id="b-AloMundoEx">3.2 - Classe AloMundoEx - </b> </b>Dentro do pacote impl.exercicio, existe uma classe chamada AloMundoEx.java. Essa classe representa nosso primeiro exercício, que simplismente herda tudo de ExGeneric, que por sua vez é uma classe genérica no framework para representar os nossos exercícios.</p> 
 
