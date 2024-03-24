@@ -8,6 +8,9 @@ Autor: Fernando Bino Machado <br><br>
 	<li><a href="#h2-introducao">1 - Introdução</a> </li>
 	<li><a href="#h2-iniciando">2 - Iniciando Projeto de Exercícios</a></li>
 	<li><a href="#h2-estrutura-projeto">3 - Estrutura do Projeto de Exercícios</a></li>
+	<ul>
+		<li><a href="#b-StartUserAplication">3.1 - Classe StartUserAplication</a></li>
+	</ul>
 	<li><a href="#h2-como-debugar">4 - Debugando Exercícios</a></li>
 </ul>
 
@@ -57,7 +60,7 @@ Autor: Fernando Bino Machado <br><br>
 
 <p align="justify">A seguir faremos um breve comentário sobre cada item importante.</p>
 
-<p align="justify"><b>StartUserAplication.java</b> </b>Dentro do pacote app, essa classe é responsável por iniciar a janela, isto é, interface que permite filtrarmos e pesquisarmos os exercícios que criamos, então dentro de StartUserAplication.java existe um método main que basicamente abrirá a seguinte janela:</p>
+<p align="justify"><b id="b-StartUserAplication">3.1 - Classe StartUserAplication - </b> </b>Dentro do pacote app, essa classe é responsável por iniciar a janela, isto é, interface que permite filtrarmos e pesquisarmos os exercícios que criamos, então dentro de StartUserAplication.java existe um método main que basicamente abrirá a seguinte janela:</p>
 
 ![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/janela_pesquisa.png)
 
