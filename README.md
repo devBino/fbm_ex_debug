@@ -43,13 +43,13 @@ Autor: Fernando Bino Machado <br><br>
 
 <p align="justify">Clique em Concluir, e verá que em seguida uma barra de progresso e alguns logs serão exibidos</p>
 
-![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/clique_concluir.png)
+![Concluir Criação do Projeto](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/clique_concluir.png)
 
 <br>
 
 <p align="justify">Aguarde até a conclusão tal como abaixo, onde verá a mensagem de confirmação</p>
 
-![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/confirmacao.png)
+![Conclusão do Projeto Criado](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/confirmacao.png)
 
 <br>
 <a href="#sumario">Voltar Sumário</a>
@@ -59,13 +59,13 @@ Autor: Fernando Bino Machado <br><br>
 
 <p align="justify">Após ter sido criado, o projeto de exercícios terá a seguinte estrutura:</p>
 
-![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/estrutura_projeto.png)
+![Estrutura do Projeto de Exercícios](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/estrutura_projeto.png)
 
 <p align="justify">A seguir faremos um breve comentário sobre cada item importante.</p>
 
 <p align="justify"><b id="b-StartUserAplication">3.1 - Classe StartUserAplication - </b> </b>Dentro do pacote app, essa classe é responsável por iniciar a interface (janela) que permite filtrar e pesquisar os exercícios que criamos, então dentro de StartUserAplication.java existe um método main que basicamente abrirá a seguinte janela:</p>
 
-![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/janela_pesquisa.png)
+![Janela de Pesquisa de Exercícios](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/janela_pesquisa.png)
 
 <a href="#sumario">Sumário</a>
 
@@ -73,40 +73,41 @@ Autor: Fernando Bino Machado <br><br>
 
 <p align="justify">Um exercício por padrão terá 3 métodos, tal como vemos abaixo no nosso exercício AloMundoEx: </p>
 
-![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/alo_mundo_ex.png)
+![Exercício Alo Mundo](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/alo_mundo_ex.png)
 
 <p align="justify">Além disso, notamos a anotação @ExMap na declaração da classe, essa anotação contém o número do exercício e o título do exercício. Agora se juntarmos as peças, podemos usar a tela de pesquisa para pesquisar esse exercício pelo título, como segue abaixo:</p>
 
-![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/pesquisa_alo_mundo_ex.png)
+![Pesquisando Exercício](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/pesquisa_alo_mundo_ex.png)
 
 <a href="#sumario">Sumário</a>
 
 <p align="justify"><b id="b-UserServiceImpl">3.3 - Classe UserServiceImpl - </b> </b>Agora que já temos uma janela que mostra o exercício alo mundo, fica facil entender a responsabilidade dessa classe  UserServiceImpl. Quando na janela de pesquisas o botão Debugar for clicado, o framework irá recuperar o exercício filtrado na janela, e irá passar uma instância do exercício para o método processar da classe UserServiceImpl. Nesse momento, você terá uma associação entre a facil pesquisa realizada na janela, e o momento onde pode debugar seu exercício. Lembre dos 3 métodos vistos na apresentação do exercício alo mundo anteriormente, verá que são exatamente os mesmos 3 métodos sendo chamados dentro do método processar, e o parâmetro ExGeneric pExGeneric é o seu exercício alo mundo, ou qualquer outro exercício que tenha feito e recuperado na pesquisa.</p>
 
-![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/user_service_impl_metodo_processar.png)
+![Classe recebe os exercícios](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/user_service_impl_metodo_processar.png)
 
 <a href="#sumario">Sumário</a>
 
-<p align="justify"><b id="b-impl.exercicio">3.4 - Pacote impl.exercicio - </b>Dentro do pacote exercicio, como deve ter percebido é o local onde deverão ser feitos todos os seus exercícios para que o framework possa localizar, você até pode se organizar e criar subpacotes dentro do pacote impl.exercicio, pois o framework já está preparado para identificar qualquer exercício começando hierarquicamente do pacote impl.exercicio para baixo, como podemos observar nesse exemplo:</p>
+<p align="justify"><b id="b-impl.exercicio">3.4 - Pacote impl.exercicio - </b>Dentro do pacote exercicio, como deve ter percebido é o local onde deverão ser feitos todos os seus exercícios para que o framework possa localizá-los, você até pode se organizar e criar subpacotes dentro do pacote impl.exercicio, pois o framework já está preparado para identificar qualquer exercício começando hierarquicamente do pacote impl.exercicio para baixo, como podemos observar nesse exemplo:</p>
 
-![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/exemplo_pacote_exercicio.png)
+![Onde Criar os Exercícios](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/exemplo_pacote_exercicio.png)
 
 <p align="justify">Recomendamos a divisão em subpacotes dessa maneira, pois facilita a organização dos seus exercícios.</p>
 
 <a href="#sumario">Sumário</a>
 
-<br>
-<a href="#sumario">Voltar Sumário</a>
-<br>
-
 <h2 id="h2-como-debugar">4 - Debugando Exercícios</h2>
 
-<p align="justify">Agora basta adicionar um <b>break point</b> dentro do método processar, e todas as implementações de ExGeneric recebidas pelo framework, passaram por esse método, e nesse momento você terá a chance de debugar todos os seus exercícios. Aqui é importante dizer que quando sua aplicação iniciar, será exibida um janela padrão de pesquisa de exercícios implementados no pacote base definido. </p>
-<br>
-<p align="justify">Nessa Janela, logo após você ter localizado seus exercícios, ao clicar em <b>Debugar</b> o framework irá processar todos os exercícios localizados e passará um por um como parâmetro para esse método processar da classe UserServiceImpl exemplificada acima. Dessa forma, você terá organização e controle, e poderá consultar sua "<b>bibliotéca de exercícios</b>".</p>
+<p align="justify">Para debugar os exercícios localizados na tela de pesquisa, basta clicar em Debugar, será exibida uma mensagem perguntando se foi adicionado um breakpoint no método processar de UserServiceImpl(apresentado no tópico <a href="#b-UserServiceImpl">3.3</a>). Para reforçar veja o método processar abaixo, e adicione um breakpoint na primeira linha com código dentro do método processar, tal como segue abaixo</p>
 
-<br>
-<p align="justify">Talvez isso não pareça grande coisa se olhar somente para esse exemplo, mas considere que você pode implementar seus exercicios adicionando anotações @Assunto, @Flags além de @ExMap e através dessas anotações pode sistematicamente organizar seus exercícios dispensando a criação de inúmeros projetos e usando a organização que o framework provê, para sistematicamente localizar e debugar seus exercícios.</p>
+![BreakPoint método processar](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/break_point_metodo_processar.png)
+
+<p align="justify">Após isso, basta confirmar a mensagem e verá que o framework conduzirá o debug para esse método processar, passando todos os exercícios encontrados na tela de pesquisa um a um. Podemos ver isso nos prints seguintes:</p>
+
+![Mensagem de Confirmação do BreakPoint](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/confirma_debug.png)
+
+![Debugando Exercício](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/debugando.png)
+
+<p align="justify">Pronto, agora basta seguir debugando.</p>
 
 <br>
 <a href="#sumario">Voltar Sumário</a>
