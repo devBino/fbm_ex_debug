@@ -97,7 +97,7 @@ Autor: Fernando Bino Machado <br><br>
 
 <h2 id="h2-como-debugar">4 - Debugando Exercícios</h2>
 
-<p align="justify">Para debugar os exercícios localizados na tela de pesquisa, basta clicar em Debugar, será exibida uma mensagem perguntando se foi adicionado um breakpoint no método processar de UserServiceImpl (apresentado no tópico <a href="#b-UserServiceImpl">3.3</a>). Para reforçar veja o método processar abaixo, e adicione um breakpoint na primeira linha com código dentro do dele, tal como segue abaixo</p>
+<p align="justify">Para debugar os exercícios localizados na tela de pesquisa, basta clicar em Debugar, será exibida uma mensagem perguntando se foi adicionado um breakpoint no método processar de UserServiceImpl (apresentado no tópico <a href="#b-UserServiceImpl">3.3</a>). Para reforçar veja o método processar abaixo, e adicione um breakpoint na primeira linha com código dentro dele, tal como segue abaixo</p>
 
 ![BreakPoint método processar](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/break_point_metodo_processar.png)
 
