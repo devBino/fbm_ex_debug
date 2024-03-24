@@ -8,12 +8,13 @@ Autor: Fernando Bino Machado <br><br>
 	<li><a href="#h2-introducao">1 - Introdução</a> </li>
 	<li><a href="#h2-iniciando">2 - Iniciando Projeto de Exercícios</a></li>
 	<li><a href="#h2-estrutura-projeto">3 - Estrutura do Projeto de Exercícios</a>
-	<ul>
-		<li><a href="#b-StartUserAplication">3.1 - Classe StartUserAplication</a></li>
-		<li><a href="#b-AloMundoEx">3.2 - Classe AloMundoEx</a></li>
-		<li><a href="#b-UserServiceImpl">3.3 - Classe UserServiceImpl</a></li>
-		<li><a href="#b-impl.exercicio">3.4 - Pacote impl.exercicio</a></li>
-	</ul></li>
+		<ul>
+			<li><a href="#b-StartUserAplication">3.1 - Classe StartUserAplication</a></li>
+			<li><a href="#b-AloMundoEx">3.2 - Classe AloMundoEx</a></li>
+			<li><a href="#b-UserServiceImpl">3.3 - Classe UserServiceImpl</a></li>
+			<li><a href="#b-impl.exercicio">3.4 - Pacote impl.exercicio</a></li>
+		</ul>
+	</li>
 	<li><a href="#h2-como-debugar">4 - Debugando Exercícios</a></li>
 	<li><a href="#h2-anotacoes">5 - Anotações em um Exercício</a></li>
 </ul>
