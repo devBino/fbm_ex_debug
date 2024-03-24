@@ -62,7 +62,7 @@ Autor: Fernando Bino Machado <br><br>
 <a href="#sumario">Voltar Sumário</a>
 <br>
 
-<h2 id="h2-estrutura-projeto">3 - Estrutura do Projeto</h2><br>
+<h2 id="h2-estrutura-projeto">3 - Estrutura do Projeto de Exercícios</h2><br>
 
 <p align="justify">Após ter sido criado, o projeto de exercícios terá a seguinte estrutura:</p>
 
