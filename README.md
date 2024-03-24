@@ -35,10 +35,8 @@ Autor: Fernando Bino Machado <br><br>
 </p>
 <p align="justify">A seguir será apresentado como iniciar um projeto de exercícios, vamos também entender sua estrutura. Além disso será mostrado como localizar os exercícios e debugá-los e também vamos falar sobre um conjunto de anotações padrões do framework que podemos utilizar nos exercícios para facilitar sua localização.</p>
 
-<br>
 <a href="#sumario">Voltar Sumário</a>
 <br>
-
 
 <h2 id="h2-iniciando">2 - Iniciando um Projeto de Exercícios</h2><br>
 
@@ -61,7 +59,6 @@ Autor: Fernando Bino Machado <br><br>
 
 ![Conclusão do Projeto Criado](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/confirmacao.png)
 
-<br>
 <a href="#sumario">Voltar Sumário</a>
 <br>
 
@@ -104,6 +101,7 @@ Autor: Fernando Bino Machado <br><br>
 <p align="justify">Recomendamos a divisão em subpacotes dessa maneira, pois facilita a organização dos seus exercícios.</p>
 
 <a href="#sumario">Sumário</a>
+<br>
 
 <h2 id="h2-como-debugar">4 - Debugando Exercícios</h2>
 
@@ -120,6 +118,7 @@ Autor: Fernando Bino Machado <br><br>
 <p align="justify">Pronto, agora basta seguir debugando.</p>
 
 <a href="#sumario">Voltar Sumário</a>
+<br>
 
 <h2 id="h2-anotacoes">5 - Anotações em um Exercício</h2>
 
@@ -146,8 +145,9 @@ Assim é possível encontrar o exercício informando uma das flags.
 <br>
 
 <p align="justify"><b id="b-ann-Repetir">5.5 - @Repetir - </b>Um exercício pode ser repetido uma ou mais vezes. Por exemplo se queremos repetir o exercício 10 vezes podemos usar a anotação da seguinte maneira @Repetir(10)</p>
-<a href="#sumario">Voltar Sumário</a>
 
+<a href="#sumario">Voltar Sumário</a>
+<br>
 
 
 
