@@ -31,9 +31,9 @@ Autor: Fernando Bino Machado <br><br>
 
 <p align="justify">Quem nunca começou um curso ou uma play-list no youtube sobre algum tema de programação, tal como, herança, interfaces, tipos primitivos, lambda etc. Enquanto assisitimos ao conteúdo é natural espalharmos um bilhão de classes com qualquer nome e um salvador método main. No momento inicial de conhecer os conceitos, essas classes milagrosas funcionam bem, mas as semanas passam e depois vamos precisar novamente daquele determinado tema. E agora, como encontrar essas classes milagrosas espalhadas em vários projetos sem padrão algum? A saída é recorrer ao mesmo video/conteúdo visto semanas antes e irônicamente produzir mais uma classe e mais um método main em qualquer lugar por acaso...</p>
 <p align="justify">Não que isso seja errado, só é uma pratica ruim, principalmente quando estamos aprendendo algo novo. E que tal se pudessemos aprender esses temas importantes e formar nossa própria bibliotéca pessoal de classes, exemplos, e cases? Que tal se o aprendizado fosse documentado com comentários e explicações? Exemplos didáticos no próprio código fáceis de localizar, otimizando tempo no aprendizado e consolidando cada vez mais nosso conhecimento?</p>
-<p align="justify">Refletindo muito sobre essa necessidade comum a todos, desenvolvi o presente projeto que consiste em um micro framework para processamento de exercícios chamado FBMEXDEBUG. Com ele podemos criar um projeto de exercícios padronizados, com anotações do framework, permitindo filtrar facilmente os exercícios por titulo, tema ou numeração da aula. Esse projeto apresenta uma solução ao problema recorrente que todos passamos, pois organiza nosso aprendizado e permite que se apropriemos do que aprendemos, o aprendizado se torna nossa experiência pessoal documentada, e com propriedade vamos buscá-lo no futuro, não em um fórum, mas na nossa bibliotéca pessoal de exercícios.
+<p align="justify">Refletindo muito sobre essa necessidade comum a todos, desenvolvi o presente projeto que consiste em um micro framework para processamento de exercícios chamado FBMEXDEBUG. Com ele podemos criar um projeto de exercícios padronizado, com anotações do framework, permitindo filtrar facilmente os exercícios por titulo, tema ou numeração da aula. Esse projeto apresenta uma solução ao problema recorrente que todos passamos, pois organiza nosso aprendizado e permite que se apropriemos do que aprendemos, o aprendizado se torna nossa experiência pessoal documentada, e com propriedade vamos buscá-lo no futuro, não em um fórum, mas na nossa bibliotéca pessoal de exercícios.
 </p>
-<p align="justify">Existem algumas maneiras de utilizar o framework que envolvem desde baixar o jarfile e criar nosso projeto seguindo passo a passo, até mesmo utilizar um inicilializador automático de projeto no padrão do framework. A seguir continuaremos abordando sobre.</p>
+<p align="justify">A seguir será apresentado como iniciar um projeto de exercícios, vamos também entender sua estrutura. Além disso será mostrado como localizar os exercícios e debugá-los e também vamos falar sobre um conjunto de anotações padrões do framework que podemos utilizar nos exercícios para facilitar sua localização.</p>
 
 <br>
 <a href="#sumario">Voltar Sumário</a>
@@ -85,7 +85,7 @@ Autor: Fernando Bino Machado <br><br>
 
 ![Exercício Alo Mundo](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/alo_mundo_ex.png)
 
-<p align="justify">Além disso, notamos a anotação @ExMap na declaração da classe, essa anotação contém o número do exercício e o título do exercício. Agora se juntarmos as peças, podemos usar a tela de pesquisa para pesquisar esse exercício pelo título, como segue abaixo:</p>
+<p align="justify">Além disso, notamos a anotação @ExMap na declaração da classe, essa anotação contém o número do exercício e o título do exercício. Agora se juntarmos as peças, podemos usar a tela de pesquisa para encontrar esse exercício pelo título, como segue abaixo:</p>
 
 ![Pesquisando Exercício](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/pesquisa_alo_mundo_ex.png)
 
@@ -127,26 +127,26 @@ Autor: Fernando Bino Machado <br><br>
 
 <p align="justify"><b id="b-ann-Assunto">5.1 - @Assunto - </b>Podemos utilizar essa anotação para agrupar exercícios por assunto, por exemplo se estamos estudando sobre interfaces, e temos vários exercícios sobre interfaces, na declaração da classe do nosso exercício podemos adicionar a anotação da seguinte maneira: 
 <br> @Assunto("interfaces")<br> 
-Então podemos pesquisar todos os exercícios por determinado assunto na tela de pesquisa.</p>
-<a href="#sumario">Sumário</a>
+Então podemos encontrar todos os exercícios por determinado assunto na tela de pesquisa.</p>
+<br>
 
 <p align="justify"><b id="b-ann-ExMap">5.2 - @ExMap - </b>Essa anotação é util quando estamos realizando um curso, e criamos um projeto de exercícios para esse curso, assim podemos utilizar @ExMap para anotar os exercícios vinculando a eles um número e título, onde o número pode ser o número da aula, e o título o título dessa aula. Por exemplo: 
 <br>@ExMap(numero=11, titulo="Como usar o if ternário")<br>
 Dessa forma podemos localizar o exercício pelo título contendo as palavras "if ternário" ou mesmo pelo seu número.
 </p>
-<a href="#sumario">Sumário</a>
+<br>
 
 <p align="justify"><b id="b-ann-Flags">5.3 - @Flags - </b>Essa anotação é útil quando um exercício pode ser associado a mais de um termo de forma que facilite sua localização, por exemplo se o assunto principal for sobre casting entre tipos primitivos, podemos utilizar o exemplo abaixo: 
 <br>@Flags(flags = {"casting","conversao"})<br>
 Assim é possível encontrar o exercício informando uma das flags.
 </p>
-<a href="#sumario">Sumário</a>
+<br>
 
 <p align="justify"><b id="b-ann-Ignore">5.4 - @Ignore - </b>Todo exercício anotado com @Ignore será ignorado e por mais que exista, não será retornado na janela de pesquisas.</p>
-<a href="#sumario">Sumário</a>
+<br>
 
 <p align="justify"><b id="b-ann-Repetir">5.5 - @Repetir - </b>Um exercício pode ser repetido uma ou mais vezes. Por exemplo se queremos repetir o exercício 10 vezes podemos usar a anotação da seguinte maneira @Repetir(10)</p>
-<a href="#sumario">Sumário</a>
+<a href="#sumario">Voltar Sumário</a>
 
 
 
