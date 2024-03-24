@@ -51,6 +51,10 @@ Autor: Fernando Bino Machado <br><br>
 
 <h2 id="h2-estrutura-projeto">3 - Estrutura do Projeto</h2><br>
 
+<p align="justify">Após ter sido criado, o projeto de exercícios terá a seguinte estrutura:</p>
+
+![Preenchimento dos Campos](https://raw.githubusercontent.com/devBino/file_repo/master/fbm_ex_debug/documentos/estrutura_projeto.png)
+
 <br>
 <a href="#sumario">Voltar Sumário</a>
 <br>
