@@ -121,8 +121,6 @@ Autor: Fernando Bino Machado <br><br>
 
 <a href="#sumario">Voltar Sumário</a>
 
-<li><a href="#h2-anotacoes">5 - Anotações em um Exercício</a>
-
 <h2 id="h2-anotacoes">5 - Anotações em um Exercício</h2>
 
 <p align="justify">O framework disponibiliza várias anotações que podemos utilizar em nossos exercícios, tais como @Assunto, @ExMap, @Flags, @Ignore e @Repetir. A seguir veremos um breve resumo de cada uma.</p>
