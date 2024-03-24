@@ -4,18 +4,6 @@ Autor: Fernando Bino Machado <br><br>
 
 <h2 id="h2-sumario">Sumario</h2>
 
-- Item de lista 1
-- Item de lista 2
-  - Subitem 2.1
-  - Subitem 2.2
-- Item de lista 3
-  - Subitem 3.1
-    - Subitem 3.1.1
-    - Subitem 3.1.2
-  - Subitem 3.2
-- Item de lista 4
-
-
 <ul>
 	<li><a href="#h2-introducao">1 - Introdução</a> </li>
 	<li><a href="#h2-iniciando">2 - Iniciando Projeto de Exercícios</a></li>
@@ -28,7 +16,15 @@ Autor: Fernando Bino Machado <br><br>
 		</ul>
 	</li>
 	<li><a href="#h2-como-debugar">4 - Debugando Exercícios</a></li>
-	<li><a href="#h2-anotacoes">5 - Anotações em um Exercício</a></li>
+	<li><a href="#h2-anotacoes">5 - Anotações em um Exercício</a>
+		<ul>
+			<li><a href="#b-ann-Assunto">5.1 - @Assunto</a></li>
+			<li><a href="#b-ann-ExMap">5.2 - @ExMap</a></li>
+			<li><a href="#b-ann-Flags">5.2 - @Flags</a></li>
+			<li><a href="#b-ann-Ignore">5.4 - @Ignore</a></li>
+			<li><a href="#b-ann-Repetir">5.5 - @Repetir</a></li>
+		</ul>
+	</li>
 </ul>
 
 <h2 id="h2-introducao">1 - Introdução</h2><br>
@@ -123,7 +119,20 @@ Autor: Fernando Bino Machado <br><br>
 
 <p align="justify">Pronto, agora basta seguir debugando.</p>
 
-<br>
 <a href="#sumario">Voltar Sumário</a>
-<br>
+
+<li><a href="#h2-anotacoes">5 - Anotações em um Exercício</a>
+
+<h2 id="h2-anotacoes">5 - Anotações em um Exercício</h2>
+
+<p align="justify">O framework disponibiliza várias anotações que podemos utilizar em nossos exercícios, tais como @Assunto, @ExMap, @Flags, @Ignore e @Repetir. A seguir veremos um breve resumo de cada uma.</p>
+
+<p align="justify"><b id="b-ann-Assunto">5.1 - @Assunto - </b> ... </p>
+<p align="justify"><b id="b-ann-ExMap">5.2 - @ExMap - </b> ... </p>
+<p align="justify"><b id="b-ann-Flags">5.3 - @Flags - </b> ... </p>
+<p align="justify"><b id="b-ann-Ignore">5.4 - @Ignore - </b> ... </p>
+<p align="justify"><b id="b-ann-Repetir">5.5 - @Repetir - </b> ... </p>
+
+
+
 
