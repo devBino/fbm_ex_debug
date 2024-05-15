@@ -2,6 +2,8 @@
 
 Autor: Fernando Bino Machado <br><br>
 
+**Projeto Despriorizado Temporariamente**
+
 <h2 id="h2-sumario">Sumario</h2>
 
 <ul>
